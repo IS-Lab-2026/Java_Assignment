@@ -34,11 +34,12 @@ Think of one of these mushrooms: Agaric Jaunissant, Amanite tue-mouche, Cepe de 
 
 The program asks at most 3 questions. Type 1 for yes and 2 for no.
 
+
 Example:
 
-Does it grow in a forest? 1
-Does it have a convex cup? 2
-Does it have gills? 2
-Cepe de bordeaux
-If you see red lines, make sure the file name matches the class name inside the file.
 
+Does it grow in a forest?
+
+Does it have a convex cup? 2
+
+Does it have gills? 2
