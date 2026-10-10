@@ -5,24 +5,61 @@ Description
 This program calculates the total cost of bicycle rental based on the selected time period. Different hourly charges are applied depending on whether the time falls in off-peak, regular, or peak hours.
 
 Line-by-Line Explanation
-Line 1: import java.util.Scanner; imports the Scanner class used to receive input from the user.
+Line 1: import java.util.Scanner; imports the Scanner class used to receive input from the user.   
+
+
 Line 3: public class BicycleRental { declares the public class. In Java, the class name should match the file name.
+
+
 Line 4: public static void main(String[] args) { starts the main method, which is the program’s entry point.
+
+
 Line 6: Scanner input = new Scanner(System.in); creates an object that reads data from the keyboard.
+
+
 Line 8 to 11: variables startTime, endTime, total, and rate are declared to store the user’s input and calculated values.
+
+
 Line 13: System.out.print("Enter starting time (0-23): "); asks the user for the start time.
+
+
 Line 14: startTime = input.nextInt(); stores the start time entered by the user.
+
+
 Line 16: System.out.print("Enter ending time (1-24): "); asks for the ending time.
+
+
 Line 17: endTime = input.nextInt(); stores the ending time.
+
+
 Line 19: for (int hour = startTime; hour < endTime; hour++) loops through each hour from start time to end time.
+
+
 Line 21: if (hour < 7 || hour >= 21) checks if the hour is in the off-peak period.
+
+
 Line 22: rate = 500; sets the rate to 500 RWF for off-peak hours.
+
+
 Line 24: else if (hour < 14 || hour >= 19) checks if the hour is in the regular period.
+
+
 Line 25: rate = 1000; sets the rate to 1000 RWF.
+
+
 Line 27: else handles all remaining hours in the peak period.
+
+
 Line 28: rate = 1500; sets the rate to 1500 RWF for peak hours.
+
+
 Line 30: total = total + rate; adds the current hour’s cost to the total.
+
+
 Line 33: System.out.println("Total rental cost = " + total + " RWF"); prints the final cost to the screen.
+
+
+
 Line 35: input.close(); closes the Scanner so the program ends cleanly.
 
 
