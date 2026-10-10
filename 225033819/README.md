@@ -84,3 +84,17 @@ A Java console application designed to calculate total rental costs based on spe
 Enter startind time (0-23): 6
 Enter ending time(1-24): 15
 Total rental cost =9000RWF
+## example of work.jav
+```text
+Think of one of the six mushrooms:
+1. Agaric jaunissant
+2. Amanite tue-mouche
+3. Cepe de Bordeaux
+4. Coprin chevelu
+5. Girolle
+6. Pied bleu
+Does your mushroom have a ring? (yes/no): yes
+Does your mushroom have gills? (yes/no): yes
+Does your mushroom grow in a forest? (yes/no): yes
+Your mushroom is Amanite tue-mouche.
+```
