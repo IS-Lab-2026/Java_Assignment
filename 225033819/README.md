@@ -78,3 +78,9 @@ A Java console application designed to calculate total rental costs based on spe
   - **14:00 - 19:00**: 1,500 RWF / hour
   - **19:00 - 21:00**: 1,000 RWF / hour
   - **21:00 - 24:00**: 500 RWF / hour
+    ## Example Run
+
+
+Enter startind time (0-23): 6
+Enter ending time(1-24): 15
+Total rental cost =9000RWF
