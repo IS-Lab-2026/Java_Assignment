@@ -138,5 +138,7 @@ Line 39: if (answer.equals ("yes")) checks whether the mushroom has a ring.
 
 
 Line 41: System.out.println("Your mushroom is Amanite tue-mouche."); prints the final identification.
+
+
 Line 43 to 44: an empty else block indicates no specific output for the remaining case.
 Line 48: input.close(); closes the Scanner and ends the program.
