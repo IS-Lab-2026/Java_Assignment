@@ -47,5 +47,5 @@ Compilation creates `.class` files. If using a recent Java version, you can also
 
 ```sh
 java work.java
-java BicycleRental.java
+java home.java
 ```
