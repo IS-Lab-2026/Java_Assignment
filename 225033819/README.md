@@ -55,6 +55,7 @@ Predefined Mushroom Database: Capable of identifying any of the following six mu
   4. Coprin chevelu.
   5. Girolle.
   6. Pied bleu.
+     
 
 Compilation creates `.class` files. If using a recent Java version, you can also run a source file directly without a separate compile step:
 
