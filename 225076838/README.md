@@ -69,28 +69,74 @@ This program asks a series of yes/no questions to identify a mushroom from a pre
 
 Line-by-Line Explanation
 Line 1: import java.util.Scanner; imports the Scanner class for input.
+
+
 Line 3: public class MushroomIdentification { declares the class.
+
+
 Line 4: public static void main(String[] args) { starts the main method.
+
+
 Line 6: Scanner input = new Scanner(System.in); creates a scanner object.
+
+
 Line 8: String answer; stores the user’s response to each question.
+
+
 Line 10 to 12: print the introduction messages explaining how the game works.
+
+
 Line 14: System.out.print("Does your mushroom have gills? "); asks the first question.
+
+
 Line 15: answer = input.nextLine(); stores the answer.
+
+
 Line 17: if (answer.equals("no")) checks if the mushroom does not have gills.
+
+
 Line 19: System.out.println("Your mushroom is Cepe de Bordeaux."); identifies the mushroom when the answer is "no".
+
+
 Line 21: else { handles all other answers, which continue to the next question.
+
+
 Line 22: System.out.print("Does your mushroom grow in a forest? "); asks the next question.
+
+
 Line 23: answer = input.nextLine(); stores the result.
+
+
 Line 25: if (answer.equals ("no")) checks if the mushroom does not grow in a forest.
+
+
 Line 26: System.out.print("Does your mushroom have a convex cup? "); asks the third question.
+
+
 Line 27: answer = input.nextLine(); stores the answer.
+
+
 Line 29: if (answer.equals ("yes")) checks if the mushroom has a convex cup.
+
+
 Line 30: System.out.println("Your mushroom is Agaric Jaunissant."); identifies the mushroom as Agaric Jaunissant.
+
+
 Line 31 to 33: else block identifies the mushroom as Coprin chevelu if the answer is not yes.
+
+
 Line 35: else { starts the branch for mushrooms that grow in a forest.
+
+
 Line 36: System.out.print("Does your mushroom have a ring? "); asks the fourth question.
+
+
 Line 37: answer = input.nextLine(); stores the answer.
+
+
 Line 39: if (answer.equals ("yes")) checks whether the mushroom has a ring.
+
+
 Line 41: System.out.println("Your mushroom is Amanite tue-mouche."); prints the final identification.
 Line 43 to 44: an empty else block indicates no specific output for the remaining case.
 Line 48: input.close(); closes the Scanner and ends the program.
