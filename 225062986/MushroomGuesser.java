@@ -12,7 +12,7 @@ public class MushroomGuesser {
         answer = input.nextInt();
 
         if (answer == 2) {
-            // Meadow: Agaric Jaunissant or Coprin chevelu
+        
             System.out.print("Does it have a convex cup? ");
             answer = input.nextInt();
 
@@ -23,7 +23,7 @@ public class MushroomGuesser {
             }
 
         } else {
-            // Forest: the other four
+            
             System.out.print("Does it have a convex cup? ");
             answer = input.nextInt();
 
@@ -46,7 +46,7 @@ public class MushroomGuesser {
                 } else {
                     System.out.println("Cepe de bordeaux");
                 }
-            }
-        }
-    }
-} 
+                }
+                }
+                }
+                } 
