@@ -1,0 +1,210 @@
+Java Individual Lab 1
+Reg Number:225033009
+
+This repository contains my solutions to Individual Lab 1. Each problem has a Java program and a line-by-line explanation of how the program works.
+
+
+Problem 1: Bicycle Rental
+The program reads two whole numbers: the starting hour and the ending hour of a bicycle rental. It calculates how much the customer must pay. Every hour of the rental is charged according to the hour in which it starts:
+
+ Hours of the day , Rate per hour 
+ 0 - 7 and 21 - 24 , 500 RWF 
+ 7 - 14 and 19 - 21 , 1000 RWF 
+ 14 - 19  1500 RWF 
+
+The rules of the problem are checked first: start must be between 0 and 23, end must be between 1 and 24, and start must be less than end.
+
+The program
+import java.util.Scanner;
+
+public class BicycleRental {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int start;
+        int end;
+        int total = 0;
+        int hour;
+        int rate;
+
+        System.out.print("Enter starting hour (0 - 23): ");
+        start = input.nextInt();
+        System.out.print("Enter ending hour (1 - 24): ");
+        end = input.nextInt();
+
+        // Check that the input follows the rules of the problem
+        if (start < 0 || start > 23 || end < 1 || end > 24) {
+            System.out.println("Invalid input: start must be 0-23 and end must be 1-24.");
+        } else if (start >= end) {
+            System.out.println("Invalid input: start time must be less than end time.");
+        } else {
+            // Charge each hour of the rental using the rate of that hour
+            for (hour = start; hour < end; hour++) {
+                if (hour < 7 || hour >= 21) {
+                    rate = 500;
+                } else if (hour < 14 || hour >= 19) {
+                    rate = 1000;
+                } else {
+                    rate = 1500;
+                }
+                total = total + rate;
+            }
+            System.out.printf("Rental from %d to %d (%d hours)\n", start, end, end - start);
+            System.out.printf("Total to pay: %d RWF\n", total);
+        }
+        input.close();
+    }
+}
+
+- import java.util.Scanner; : Tells Java that we want to use the "Scanner" class from the package "java.util". “Scanner”is the tool that lets the program read what the user types on the keyboard.
+- public class BicycleRental { : Declares the class. In Java everything is written inside a class, and the class name must be the same as the file name (" BicycleRental.java "). The " { " starts the body of the class.
+- public static void main(String[] args) {: The " main " method. This is where the program starts running. "public" means anyone can call it, "static" means the JVM can run it without creating an object, " void " means it returns nothing, and " String[] args " holds command line arguments (not used here). The " {" starts the body of the method.
+
+- Scanner input = new Scanner(System.in);: Creates a " Scanner " object named " input " that reads from the keyboard (" System.in " is the standard input).
+- int start;: Declares an integer variable to store the starting hour.
+- int end;: Declares an integer variable to store the ending hour.
+- int total = 0;: Declares the variable that will hold the total money to pay, and sets it to 0 at the beginning.
+- int hour;: Declares the counter used by the loop. It will go through each hour of the rental.
+- int rate;: Declares the variable that will hold the price of one hour (500, 1000 or 1500).
+
+
+- System.out.print("Enter starting hour (0 - 23): ");: Shows a message asking for the starting hour. `print` keeps the cursor on the same line so the user types right after the message.
+- start = input.nextInt();: Reads a whole number from the keyboard and stores it in “start”. Decimal numbers are not accepted by “nextInt()”.
+- System.out.print("Enter ending hour (1 - 24): ");: Asks for the ending hour.
+- end = input.nextInt();: Reads the ending hour and stores it in " end ".
+
+// Check that the input follows..: A comment. Java ignores it. It is only there to help people read the code.
+- if (start < 0 || start > 23 || end < 1 || end > 24) {: The first check. " || " means OR. The condition is true if start is below 0, or start is above 23, or end is below 1, or end is above 24. In other words, if any number is outside its allowed range.
+- System.out.println("Invalid input: start must be 0-23 and end must be 1-24.");: Runs only when the condition above is true. It prints an error message and moves to a new line (“println”).
+- " } else if (start >= end) { ": Runs only when the first check was false (the numbers are in range). It checks the rule that the start time must be less than the end time. " >= " means "greater than or equal to".
+- System.out.println("Invalid input: start time must be less than end time.");: Prints the error for this second rule.
+- " } else { ": This part runs when both checks were false, which means the input is valid. The rental can now be calculated.
+
+
+- for (hour = start; hour < end; hour++) {: A “for” loop. It starts with “hour = start”, keeps repeating while “hour < end”, and after each round does “hour++” (adds 1 to “hour”). So the loop body runs once for every hour of the rental. For example, a rental from 6 to 8 runs for hour 6 and hour 7.
+- if (hour < 7 || hour >= 21) {: Checks whether this hour is in the 500 RWF range: before 7, or from 21 onward.
+- rate = 500; : Sets the price of this hour to 500.
+- } else if (hour < 14 || hour >= 19) {: Reached only if the hour is between 7 and 20. If it is before 14 or from 19 onward, it is in the 1000 RWF range (7 to 13 and 19 to 20).
+- rate = 1000;: Sets the price of this hour to 1000.
+- } else {: Everything left is from 14 to 18, which is the 1500 RWF range.
+- rate = 1500;: Sets the price of this hour to 1500.
+- }: Closes the “if / else if / else”chain.
+- total = total + rate;: Adds the price of this hour to the running total. This line is outside the `if` chain, so it runs once for every hour.
+- }: Closes the `for` loop. Java now goes back to `hour++` and checks `hour < end` again.
+
+
+
+- System.out.printf("Rental from %d to %d (%d hours)\n", start, end, end - start);: Prints a formatted message. Each “%d”is a place holder for an integer, filled in order by “start”, “end” and “end – start” (the number of hours). “\n” moves to a new line.
+- System.out.printf("Total to pay: %d RWF\n", total);: Prints the total amount to pay.
+- }: Closes the “else”block.
+- input.close();: Closes the “Scanner”because we have finished reading input.
+-} and }: The first closes the “main”method and the second closes the class. Every “{“ must have a matching “}”.
+
+Problem 2: Mushroom Identification
+
+If we asked "Does it have gills?" first, then after a "yes" five mushrooms would remain, and two more questions can only separate four. So the program asks about the forest first:
+
+1. Forest = No (meadow):only Agaric jaunissant and Coprin chevelu are left. One question about the convex cup separates them (2 questions in total).
+2. Forest = Yes: ask about the convex cup
+   - Cup = Yes: Amanite tue-mouche or Pied bleu. The ring question separates them (3 questions in total).
+   - Cup = No: Cepe de bordeaux or Girolle. The gills question separates them (3 questions in total).
+
+ The program
+
+import java.util.Scanner;
+
+public class MushroomFinder {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int answer;
+
+        System.out.println("Think of one of these mushrooms:");
+        System.out.println("Agaric Jaunissant, Amanite tue-mouche, Cepe de bordeaux,");
+        System.out.println("Coprin chevelu, Girolle, Pied bleu");
+        System.out.println("Answer each question with 1 for YES or 0 for NO.\n");
+
+        System.out.print("Does your mushroom grow in a forest? ");
+        answer = input.nextInt();
+
+        if (answer == 0) {
+            // Meadow: Agaric jaunissant or Coprin chevelu
+            System.out.print("Does your mushroom have a convex cup? ");
+            answer = input.nextInt();
+            if (answer == 1) {
+                System.out.println("Your mushroom is: Agaric Jaunissant");
+            } else {
+                System.out.println("Your mushroom is: Coprin chevelu");
+            }
+        } else {
+            // Forest: Amanite, Pied bleu, Cepe or Girolle
+            System.out.print("Does your mushroom have a convex cup? ");
+            answer = input.nextInt();
+            if (answer == 1) {
+                // Amanite tue-mouche or Pied bleu
+                System.out.print("Does your mushroom have a ring? ");
+                answer = input.nextInt();
+                if (answer == 1) {
+                    System.out.println("Your mushroom is: Amanite tue-mouche");
+                } else {
+                    System.out.println("Your mushroom is: Pied bleu");
+                }
+            } else {
+                // Cepe de bordeaux or Girolle
+                System.out.print("Does your mushroom have gills? ");
+                answer = input.nextInt();
+                if (answer == 1) {
+                    System.out.println("Your mushroom is: Girolle");
+                } else {
+                    System.out.println("Your mushroom is: Cepe de bordeaux");
+                }
+            }
+        }
+        input.close();
+    }
+}
+
+- import java.util.Scanner;: Lets the program use the "Scanner" class to read the user's answers from the keyboard.
+- public class MushroomFinder {: Declares the class. Its name must match the file name "MushroomFinder.java".
+- public static void main(String[] args) {: The starting point of the program.
+
+- Scanner input = new Scanner(System.in);: Creates the "Scanner" object named "input" that reads from the keyboard.
+- int answer;: One variable is enough to store each answer. It is reused for every question: 1 means YES and 0 means NO.
+- System.out.println("Think of one of these mushrooms:"); and the next two “println” lines: Print the list of the six mushrooms so the user knows the choices.
+- System.out.println("Answer each question with 1 for YES or 0 for NO.\n");: Explains how to answer. The "\n"at the end adds an extra blank line.
+
+
+- System.out.print("Does your mushroom grow in a forest? ");: Asks the first question.
+- answer = input.nextInt();: Reads the answer (1 or 0) and stores it in "answer".
+- if (answer == 0) {: "==" compares two values. If the answer is 0 (NO), the mushroom grows in a meadow, so only Agaric jaunissant or Coprin chevelu is possible. The "else" of this "if" (further below) handles the forest case.
+
+- System.out.print("Does your mushroom have a convex cup? ");: Second question, to separate the two meadow mushrooms.
+- answer = input.nextInt();: Reads the new answer. It replaces the old value in "answer".
+- if (answer == 1) {: If there is a convex cup, it is Agaric jaunissant.
+- System.out.println("Your mushroom is: Agaric Jaunissant");: Prints the result.
+- } else {: Otherwise there is no cup.
+- System.out.println("Your mushroom is: Coprin chevelu");: The only meadow mushroom without a cup is Coprin chevelu, so the program prints it.
+- }: Closes the inner "if / else".
+
+-} else {: This "else" belongs to the first “if (answer == 0) ". It runs when the mushroom grows in a forest. The candidates are Amanite tue-mouche, Cepe de bordeaux, Girolle and Pied bleu.
+- System.out.print("Does your mushroom have a convex cup? ");: Second question in this branch.
+- answer = input.nextInt();: Reads the answer.
+- if (answer == 1) {: With a cup, the choices are Amanite tue-mouche or Pied bleu.
+
+- System.out.print("Does your mushroom have a ring? ");: Third question. Amanite tue-mouche has a ring and Pied bleu does not.
+- answer = input.nextInt();: Reads the answer.
+- if (answer == 1) {: Ring present.
+- System.out.println("Your mushroom is: Amanite tue-mouche");: Prints Amanite tue-mouche.
+- } else {: No ring.
+- System.out.println("Your mushroom is: Pied bleu");: Prints Pied bleu.
+
+- } else {: This “else”belongs to "if (answer == 1)"of the cup question. There is no cup, so the choices are Cepe de bordeaux or Girolle.
+- System.out.print("Does your mushroom have gills? ");: Third question. Girolle has gills and Cepe de bordeaux has pores.
+- answer = input.nextInt();: Reads the answer.
+- if (answer == 1) {: Gills present.
+- System.out.println("Your mushroom is: Girolle");: Prints Girolle.
+- } else {: No gills (it has pores).
+- System.out.println("Your mushroom is: Cepe de bordeaux");: Prints Cepe de bordeaux.
+
+- input.close();: Closes the "Scanner" after all questions are done.
+- The last "}" lines close, from the inside out, the remaining "if / else"blocks, the "main"method and the class.
+
+
