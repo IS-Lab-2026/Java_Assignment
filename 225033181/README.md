@@ -1,25 +1,22 @@
 
-# Java Mini Projects: Detailed Code Explanation
+Java Mini Projects: Detailed Code Explanation
 
 This repository contains two Java programs:
 
-1. **Bicycle Rental System** — calculates the rental cost of a bicycle based on the starting and ending hours.
-2. **Mushroom Guessing Program** — identifies a mushroom from a list of six options by asking questions about its characteristics.
+1. Bicycle Rental System : calculates the rental cost of a bicycle based on the starting and ending hours.
+2. Mushroom Guessing Program : identifies a mushroom from a list of six options by asking questions about its characteristics.
 
 The purpose of these programs is to practice basic Java programming concepts, including variables, user input, conditional statements, loops, string handling, and arithmetic operations.
 
-# 1\. Bicycle Rental System
-## 1.1. Program Description
+ Bicycle Rental System
+ 1.1. Program Description
 
 The Bicycle Rental System calculates the total amount a customer must pay to rent a bicycle. The user enters the starting and ending hours of the rental. The program checks whether the entered times are valid and calculates the total cost using different hourly rates depending on the time of day.
-The program uses a `for` loop to examine each rental hour individually and adds the appropriate price to the total cost.
+The program uses a `for` loop to examine each rental hour individually and adds the appropriate price to the total cost.   
 
+       1.3. Explanation of Every Line
 
-    
-
-## 1.3. Explanation of Every Line
-
-### Line 1: Importing the Scanner class
+      Line 1: Importing the Scanner class
 
 import java.util.Scanner;
 This statement imports the `Scanner` class from Java's `java.util` package.
@@ -28,7 +25,8 @@ The `Scanner` class allows a program to read input from a user. In this program,
 
 Without importing `Scanner`, you would need to use its full package name whenever you refer to the class.
 
-### Line 2: Declaring the class
+       Line 2: Declaring the class
+ 
 public class BicycleRental {
 - `public` means the class can be accessed from other classes.
 - `class` is the Java keyword used to declare a class.
@@ -38,25 +36,16 @@ public class BicycleRental {
 The class contains the code that implements the bicycle rental calculation.
 The filename must be `BicycleRental.java` because the class is declared `public`.
 
-### Line 3: Declaring the main method
+         Line 3: Declaring the main method
+ 
 public static void main(String[] args) {
 
 This line declares the `main` method, which is the entry point for a standard Java application.
 
-Each part has a specific meaning:
-
-- `public`: Makes the method accessible to the Java runtime.
-- `static`: Allows the method to run without creating an object of the class.
-- `void`: Means the method does not return a value.
-- `main`: The special method name Java looks for when starting the program.
-- `String[] args`: An array of strings that can receive command-line arguments.
-- `{`: Marks the beginning of the method body.
-
 When you run `java BicycleRental`, Java starts executing the statements inside this method.
 
-### Line 4: Creating a Scanner object
+        Line 4: Creating a Scanner object
 
-```
 Scanner input = new Scanner(System.in);
 This statement creates a `Scanner` object named `input`.
 - `Scanner` is the type of object being declared.
@@ -66,7 +55,7 @@ This statement creates a `Scanner` object named `input`.
 
 The program uses `input` later to read the hours entered by the user.
 
-### Line 5: Displaying the starting-time prompt
+      Line 5: Displaying the starting-time prompt
 
 
 System.out.println("Enter starting time (0-23): ");
@@ -74,87 +63,68 @@ This statement displays a message asking the user to enter the starting hour.
 
 The numbers `0-23` indicate that the program expects the starting hour to be between 0 and 23, inclusive.
 
-### Line 6: Reading the starting hour
+       Line 6: Reading the starting hour
+
 int startTime = input.nextInt();
-```
+
 
 This statement reads an integer entered by the user and stores it in `startTime`.
-
-
 For example, if the user enters `8`, then `startTime` becomes `8`.
 
-### Line 7: Displaying the ending-time prompt
+ 
+        Line 7: Displaying the ending-time prompt
 
-```
 System.out.print("Enter ending time (1-24): ");
-```
 
 This statement asks the user to enter the ending hour.
-
-The difference between `print()` and `println()` is that `print()` does not automatically move to a new line after displaying the message.
-
 Therefore, the user can enter the ending hour on the same line as the prompt.
-
 The allowed ending-hour range is 1 through 24, inclusive.
 
-### Line 8: Reading the ending hour
+     Line 8: Reading the ending hour
 
-```
+
 int endTime = input.nextInt();
-```
 
 This statement reads the ending hour and stores it in the integer variable `endTime`.
-
 For example, if the user enters `11`, the value of `endTime` becomes `11`.
-
 The program now has the two values needed to calculate the rental duration.
 
-### Line 9: Checking whether the hours are valid
+      Line 9: Checking whether the hours are valid
 
-```
+
 if (startTime < 0 || startTime > 23 ||
     endTime < 1 || endTime > 24) {
-```
+
 
 This `if` statement checks whether either entered hour is outside its permitted range.
-
 The conditions are:
-
-- `startTime < 0`: The starting hour is less than 0.
-- `startTime > 23`: The starting hour is greater than 23.
-- `endTime < 1`: The ending hour is less than 1.
+startTime < 0: The starting hour is less than 0.
+startTime > 23: The starting hour is greater than 23.
+endTime < 1: The ending hour is less than 1.
 - `endTime > 24`: The ending hour is greater than 24.
 - `||` means logical OR. The complete condition is true if at least one of its component conditions is true.
-
 The line breaks in the condition are only for readability; Java evaluates it as one expression.
-
 If any of these conditions is true, the program executes the statements inside the `if` block.
 
-### Line 10: Displaying an invalid-hour error
+      Line 10: Displaying an invalid-hour error
 
-```
+
 System.out.println("Error: Invalid hour ranges provided.");
-```
 
 This statement displays an error message when the starting or ending hour is outside the permitted range.
-
 For example, a starting hour of `25` or an ending hour of `0` causes this message to appear.
-
 The purpose is to inform the user that the input does not satisfy the program's rules.
 
-### Line 11: Stopping the program
+     Line 11: Stopping the program
 
-```
 return;
-```
+
 
 The `return` statement immediately exits the `main` method.
-
 Because the method is `void`, it does not need to return a value.
-
 In this situation, `return` prevents the program from calculating a rental cost using invalid hours.
 
-### Line 12: Closing the first `if` block
+     Line 12: Closing the first `if` block
 
 ```
 }
@@ -180,124 +150,103 @@ The program does not support rentals that cross midnight.
 
 For example, a starting hour of `18` and an ending hour of `8` fails this check.
 
-### Line 14: Displaying the time-order error
+     Line 14: Displaying the time-order error
 
-```
+
 System.out.println("Error: Starting time must be less than ending time.");
-```
+
 
 This statement displays an error message when the starting hour is not earlier than the ending hour.
-
 It explains that the user must enter an ending hour greater than the starting hour.
 
-### Line 15: Exiting after the time-order error
+       Line 15: Exiting after the time-order error
 
-```
+
 return;
-```
+
 
 This statement immediately terminates the `main` method.
-
 It prevents the program from continuing to the cost calculation when the rental period is invalid.
 
-### Line 16: Closing the second `if` block
+    Line 16: Closing the second `if` block
 
-```
+
 }
-```
 
 This brace marks the end of the second `if` statement.
-
 If neither validation check fails, execution continues to the calculation section.
 
-### Line 17: Initializing the total cost
+     Line 17: Initializing the total cost
 
-```
+
 int totalCost = 0;
-```
+
 
 This statement declares an integer variable named `totalCost` and initializes it to zero.
+The variable stores the accumulated rental price.It starts at zero because no rental hours have been processed yet. The program adds the appropriate hourly charge to this variable during the loop.
 
-The variable stores the accumulated rental price.
+      Line 18: Starting the `for` loop
 
-It starts at zero because no rental hours have been processed yet. The program adds the appropriate hourly charge to this variable during the loop.
 
-### Line 18: Starting the `for` loop
-
-```
 for (int h = startTime; h < endTime; h++) {
-```
+
 
 This statement starts a `for` loop that processes each rental hour individually.
-
 A `for` loop has three main parts:
-
 - `int h = startTime`: Creates an integer variable `h` and initializes it to the starting hour.
 - `h < endTime`: The loop continues while `h` is less than the ending hour.
 - `h++`: Increases `h` by one after each iteration.
-
 For example, if `startTime` is `8` and `endTime` is `11`, the loop processes hours `8`, `9`, and `10`.
-
 The ending hour is excluded. This makes the duration three hourly intervals rather than four.
 
-### Line 19: Checking the lowest hourly rate
+       Line 19: Checking the lowest hourly rate
 
-```
+
 if ((h >= 0 && h < 7) || (h >= 21 && h < 24)) {
-```
+
 
 This condition checks whether the current hour falls within either of two low-price periods.
-
 The first range is:
 
-```
+
 h >= 0 && h < 7
-```
 
 This means the hour is from 0 through 6.
-
 The second range is:
 
-```
 h >= 21 && h < 24
-```
 
 This means the hour is from 21 through 23.
-
 The operators work as follows:
-
-- `&&` means logical AND. Both conditions on its sides must be true.
+`&&` means logical AND. Both conditions on its sides must be true.
 - `||` means logical OR. Either complete time range can match.
 
 If the current hour belongs to either range, the program charges 500 RWF for that hour.
 
-### Line 20: Adding 500 RWF
+ 
+     Line 20: Adding 500 RWF
 
-```
+
 totalCost += 500;
-```
+
 
 This statement adds 500 to the current total cost.
 
 The operator `+=` is shorthand for:
 
-```
+
 totalCost = totalCost + 500;
-```
+
 
 For example, if `totalCost` is initially `0`, it becomes `500` after the first qualifying hour.
-
 If three qualifying hours are processed, their combined cost is `1500 RWF`.
 
-### Line 21: Checking the middle hourly rate
+   Line 21: Checking the middle hourly rate
 
-```
 } else if ((h >= 7 && h < 14) ||
            (h >= 19 && h < 21)) {
-```
 
 The `else if` statement is checked when the first `if` condition is false.
-
 It checks whether the current hour belongs to either of these ranges:
 
 - Hours 7 through 13.
@@ -307,23 +256,19 @@ The conditions use `&&` to check the boundaries of each range and `||` to connec
 
 If either range matches, the hourly charge is 1000 RWF.
 
-### Line 22: Adding 1000 RWF
+     Line 22: Adding 1000 RWF
 
-```
+
 totalCost += 1000;
-```
 
 This statement adds 1000 RWF to the accumulated total.
-
 For example, if the current total is `1500`, it becomes `2500` after this operation.
-
 The amount is added once for every processed hour that belongs to the specified time ranges.
 
-### Line 23: Checking the highest hourly rate
+ 
+ Line 23: Checking the highest hourly rate
 
-```
 } else if (h >= 14 && h < 19) {
-```
 
 This condition checks whether the current hour is between 14 and 18, inclusive.
 
@@ -332,68 +277,58 @@ This condition checks whether the current hour is between 14 and 18, inclusive.
 - `&&` requires both conditions to be true.
 
 These hours correspond to the time period from 2:00 p.m. to 7:00 p.m., with the ending boundary excluded.
-
 The hourly rental price for this period is 1500 RWF.
 
-### Line 24: Adding 1500 RWF
+   Line 24: Adding 1500 RWF
 
-```
+
 totalCost += 1500;
-```
+
 
 This statement adds 1500 RWF to the total cost.
-
 It runs whenever the current hour falls between 14 and 18.
-
 For example, if the current total is `2500`, the new total becomes `4000`.
 
-### Line 25: Closing the conditional structure
+      Line 25: Closing the conditional structure
 
-```
+
 }
-```
+
 
 This brace closes the `if`, `else if`, and `else if` structure that determines the hourly price.
-
 For each hour, only the first matching branch executes.
-
 Since the defined ranges do not overlap, each processed hour receives exactly one of the three hourly charges.
 
-### Line 26: Closing the `for` loop
+        Line 26: Closing the `for` loop
 
-```
+
 }
-```
+
 
 This brace marks the end of the loop body.
-
 After processing the current hour, Java executes `h++`, increases the hour by one, and checks whether the loop should continue.
-
 The loop ends when `h` is no longer less than `endTime`.
 
-### Line 27: Displaying the total rental cost
+        Line 27: Displaying the total rental cost
 
-```
+
 System.out.println("Total rent to pay: " + totalCost + " RWF");
-```
 
 This statement displays the final rental amount.
 
 The `+` operator is used to combine strings with the numeric value of `totalCost`.
-
 For example, if `totalCost` equals `3000`, the output is:
 
-```
+
 Total rent to pay: 3000 RWF
-```
+
 
 The text `RWF` indicates that the amount is expressed in Rwandan francs.
 
-### Line 28: Closing the Scanner
+    Line 28: Closing the Scanner
 
-```
 input.close();
-```
+
 
 This statement closes the Scanner object named `input`.
 
@@ -401,29 +336,25 @@ Closing a Scanner releases the resources associated with it.
 
 In this program, `input.close()` is reached when the calculation finishes normally. The earlier `return` statements exit the method before reaching this line.
 
-### Line 29: Closing the `main` method
+Line 29: Closing the `main` method
 
-```
+
 }
-```
-
 This brace marks the end of the `main` method.
-
 All statements that belong to the main method must appear between its opening and closing braces.
 
-### Line 30: Closing the class
+Line 30: Closing the class
 
-```
+
 }
-```
+
 
 This final brace marks the end of the `BicycleRental` class.
-
 Java uses braces to group class bodies, method bodies, loops, and conditional blocks.
 
----
 
-## 1.4. Example Calculation
+
+      1.4. Example Calculation
 
 Suppose the user enters:
 
@@ -1208,64 +1139,3 @@ java MushroomGuess
 ```
 
 ---
-
-# 4\. Project Structure
-
-The project can be organized as follows:
-
-```
-Java-Mini-Projects/
-├── README.md
-├── BicycleRental.java
-└── MushroomGuess.java
-```
-
-- `README.md` contains the project description, instructions, and line-by-line explanations.
-- `BicycleRental.java` contains the bicycle rental calculation.
-- `MushroomGuess.java` contains the mushroom guessing logic.
-
----
-
-# 5\. Limitations and Possible Improvements
-
-## Bicycle Rental System
-
-The current program works for rental periods where the starting hour is earlier than the ending hour.
-
-Possible improvements include:
-
-- Validate that the user enters integers instead of other types of input.
-- Allow rental periods that cross midnight.
-- Accept minutes in addition to whole hours.
-- Display a clearer error message if the input is invalid.
-- Extract the hourly pricing logic into a separate method to make the code easier to maintain.
-
-## Mushroom Guessing Program
-
-The current program uses a simple decision tree with predefined results.
-
-Possible improvements include:
-
-- Reject answers other than `yes` and `no`.
-- Trim leading and trailing spaces from answers.
-- Separate the identification logic into methods.
-- Improve the questions and identification rules.
-- Add a message explaining when the program cannot determine a result.
-
-**Safety note:** This program is an educational exercise, not a reliable mushroom-identification tool. Never eat a mushroom based on this program's result. Some poisonous mushrooms can resemble edible species, and identification requires reliable expert assessment.
-
----
-
-# 6\. Conclusion
-
-These two Java programs demonstrate how basic programming concepts can be used to solve different problems.
-
-The Bicycle Rental System uses arithmetic, validation, and loops to calculate a rental fee. The Mushroom Guessing Program uses string input and nested conditional statements to select a result based on a series of questions.
-
-Studying each line helps develop an understanding of Java syntax, program flow, input handling, decision-making, and problem-solving.
-
-## A few important things to understand
-
-- The line-by-line explanations follow your original logic. I have formatted some long lines across multiple lines to make the README easier to read.
-- The mushroom program does not validate answers. For example, entering `maybe` instead of `yes` or `no` may cause the program to choose a result incorrectly.
-- The bicycle program charges for each hour interval starting at the entered hour and ending just before the ending hour. That is why renting from hour 8 to hour 11 costs three hourly charges, not four.
