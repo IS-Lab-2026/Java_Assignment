@@ -1,4 +1,4 @@
-# Java Mini Projects
+# Java Assigment Programs
 
 ## Problem 1: Bicycle Rental Calculatr
 A console application that calculates the total rental fee for a bicycle business based on hourly rates in Rwandan Francs (RWF). 
