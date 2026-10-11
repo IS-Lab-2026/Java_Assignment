@@ -1,10 +1,10 @@
-Bicycle Rental Calculator
+# Bicycle Rental Calculator
 
-What this program does
+## What this project does
 This is a simple Java program  made to calculate bicycle rent price in RWF.
 You enter start hour and end hour, and it tells you total money to pay.
 
-How the price works
+## How the price works
 I made 3 time zones like in real life:
 - **Night time (0h - 7h and 21h - 24h):** 500 RWF per hour - cheap because few people
 - **Normal time (7h - 14h and 19h - 21h):** 1000 RWF per hour
@@ -24,6 +24,7 @@ I made 3 time zones like in real life:
 5. Enter start hour (0-23)
 6. Enter end hour (1-24)
 7. See total rent!
+
 
 # Mushroom Identifier - Java Program
 
@@ -58,10 +59,10 @@ The program asks questions step by step:
 - I used `trim().toLowerCase()` so YES, Yes, yes all work
 
 ## How to run it
-1. File name: `Correctassigment3.java`
-2. Compile: `javac Correctassigment3.java`
-3. Run: `java Correctassigment3`
+1. File name: `Mushroom_Identifier.java`
+2. Compile: `javac Mushroom_Identifier.java`
+3. Run: `java Mushroom_Identifier`
 4. Answer only `yes` or `no`
 5. Program will tell you mushroom name
 
-## Example
+
