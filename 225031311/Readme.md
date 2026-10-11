@@ -6,9 +6,9 @@ You enter start hour and end hour, and it tells you total money to pay.
 
 ## How the price works
 I made 3 time zones like in real life:
-- **Night time (0h - 7h and 21h - 24h):** 500 RWF per hour - cheap because few people
+- **Night time (0h - 7h and 21h - 24h):** 500 RWF per hour 
 - **Normal time (7h - 14h and 19h - 21h):** 1000 RWF per hour
-- **Busy time (14h - 19h):** 1500 RWF per hour - expensive because many people want bicycle
+- **Busy time (14h - 19h):** 1500 RWF per hour
 
 ## Tools I used
 - Java
