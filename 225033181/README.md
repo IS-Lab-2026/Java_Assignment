@@ -1,10 +1,17 @@
-NAME: DUSINGIZIMANA Edinamique
+
+
+Department: Information systems 
+Module: java programming 
 REGno: 225033181
+
+
+
 
 
 JAVA MINI PROJECTS: DETAILED CODE EXPLANATION
 
 INTRODUCTION
+
 This repository contains two Java programs:
 
 Bicycle Rental System: Calculates bicycle rental costs based on starting and ending hours.
@@ -12,6 +19,7 @@ Mushroom Guessing Program: Identifies one of six mushrooms by asking questions a
 These projects practice variables, input, output, conditions, loops, strings, and arithmetic operations.
 
 BICYCLE RENTAL SYSTEM
+
 2.1. Program Description
 
 The program calculates the total bicycle rental cost based on the starting and ending hours entered by the user. It validates the hours and applies different hourly rates depending on the time of day. A for loop processes each rental hour and adds the corresponding charge.
@@ -80,6 +88,7 @@ Line 30: } Closes the BicycleRental class.
 
 2.3. Example Calculation
 
+
 Starting hour: 8 Ending hour: 11
 
 The program processes hours 8, 9, and 10.
@@ -92,9 +101,12 @@ Output: Total rent to pay: 3000 RWF
 
 2.4. Important Java Concepts
 
+
 Variables: startTime, endTime, totalCost, and h store values. Input: Scanner and nextInt() read numbers. Output: println() and print() display messages. Conditions: if and else if select actions. Logical operators: || means OR; && means AND. Comparison operators: <, >, and >= compare values. Loops: for processes each rental hour. Arithmetic: += adds charges to the total. Termination: return exits the method when validation fails.
 
 MUSHROOM GUESSING PROGRAM
+
+
 3.1. Program Description
 
 This program identifies one of six mushrooms by asking questions about gills, forest habitat, a ring, and a convex cup. It uses nested if-else statements to follow a decision tree.
@@ -191,7 +203,9 @@ Line 45: } Closes the main method.
 
 Line 46: } Closes the MushroomGuess class.
 
+
 3.3. Decision Tree
+
 
 Gills = no: Result: Cepe de Bordeaux.
 
@@ -203,6 +217,7 @@ The actual code treats any answer other than the exact expected string as the al
 
 3.4. Example Execution
 
+
 Gills: yes Forest: yes Convex cup: yes Ring: no
 
 Output: Your mushroom is: Pied bleu
@@ -213,9 +228,11 @@ Note: This program is a basic programming exercise, not a scientifically reliabl
 
 3.5. Important Java Concepts
 
+
 Classes and methods: MushroomGuess and main() organize the program. Input: Scanner and nextLine() read answers. Strings: String stores text. Conversion: toLowerCase() converts answers to lowercase. Comparison: equals() compares string values. Conditions: if and else choose actions. Nested conditions: Multiple conditions create the decision tree. Variable scope: Variables declared inside blocks are limited to those blocks. Output: print() and println() display questions and results.
 
 COMPILING AND RUNNING THE PROGRAMS
+
 Requirements:
 
 Install the Java Development Kit (JDK).
@@ -224,6 +241,7 @@ Open a terminal or command prompt.
 Check Java: java -version
 
 Check the compiler: javac -version
+
 
 4.1. Run Bicycle Rental System
 
