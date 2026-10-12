@@ -1,4 +1,5 @@
 Java Individual Lab 1
+
 Reg Number:225033009
 
 This repository contains my solutions to Individual Lab 1. Each problem has a Java program and a line-by-line explanation of how the program works.
