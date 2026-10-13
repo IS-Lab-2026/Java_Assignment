@@ -1,11 +1,11 @@
 
-**Time-Tiered Cost Calculator**
+1.**Time-Tiered Cost Calculator**
 A Java command-line application that calculates service or usage costs based on specific time tiers and hourly rates.
 
 Project Overview
 This application calculates total costs based on the start and end times provided by the user. It enforces input validation to ensure valid time ranges and applies specific hourly rates depending on the time tier selected.
 
-⚙️ Code Structure & Statement Descriptions
+ Code Structure & Statement Descriptions
 
 Below is a breakdown of every major Java statement and logic component used in this program:
 
@@ -61,15 +61,7 @@ javac TimeTieredCostCalculator.java
 
 
 
-
-
-
-
-
-
-
-
-**Mushroom Identification Program**
+2.**Mushroom Identification Program**
 A Java command-line application that helps identify different mushroom species based on physical characteristics and growing conditions.
 
 Project Overview
@@ -94,7 +86,7 @@ public class Assignment {
 
 public static void main(String[] args) {
 
-Description: The main method entry point. When the compiled Java program runs, the Java Virtual Machine (JVM) looks for this exact method signature to begin execution.
+* **Description:** The main method entry point. When the compiled Java program runs, the Java Virtual Machine (JVM) looks for this exact method signature to begin execution.
 
 Scanner input = new Scanner(System.in);
 
