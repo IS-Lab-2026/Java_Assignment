@@ -14,7 +14,6 @@ I made 3 time zones like in real life:
 - Java
 - Scanner for user input
 - For loop to calculate hour by hour
-- VS Code
 
 ## How to run it
 1. Download the file `BicycleRental.java`
