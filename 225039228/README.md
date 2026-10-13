@@ -2,32 +2,26 @@
 
 ## 1. Project Description
 The Bicycle Rental System is a simple Java program that calculates the cost of renting a bicycle based on the starting time and ending time entered by the user.
-
 ## 2. Objectives
 - Practice basic Java programming.
 - Accept user input using the `Scanner` class.
 - Calculate rental duration and cost.
 - Use conditional statements to determine the rental rate.
 - Detect invalid rental times.
-
 ## 3. Technologies Used
 - **Language:** Java
 - **Input:** Scanner class
 - **Editor:** VS Code or any Java IDE
-
 ## 4. How It Works
 1. The user enters the starting and ending times.
 2. The program calculates the rental duration.
 3. It checks whether the rental time is valid.
 4. It selects the hourly rate based on the rental duration.
 5. It calculates and displays the total cost.
-
 **Formula:**
 
 Total Cost = Rental Duration × Hourly Rate
-
 ## 5. Rental Pricing Rules
-
 | Rental Duration | Rate per Hour |
 |---|---:|
 | Less than 7 hours | 500 |
@@ -35,27 +29,16 @@ Total Cost = Rental Duration × Hourly Rate
 | 14 to less than 19 hours | 1,500 |
 | 19 to less than 21 hours | 1,000 |
 | 21 hours or more | 500 |
-
 ## 6. Example Output
-
-```text
 Enter starting time: 8
 Enter ending time: 12
 Total cost = 2000
-```
-
 **Explanation:** The rental lasts 4 hours. At 500 per hour, the total cost is 4 × 500 = 2,000.
-
 ## 7. How to Run
 1. Save the code as `BicycleRental.java`.
 2. Open the terminal in the project folder.
 3. Compile the program:
-
-   `javac BicycleRental.java`
-
 4. Run the program:
-
-   `java BicycleRental`
 
 ## 8. Limitations
 - Accepts integer values only.
