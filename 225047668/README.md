@@ -5,7 +5,7 @@ Two console programs written in Java to practise **variables, operators, decisio
 | # | Project | Main technique | File |
 |---|---|---|---|
 | 1 | Bicycle Rental Shop | `for` loop with `if / else if / else` | `BicycleRentalShop.java` |
-| 2 | Mushroom Identifier | Nested `if / else` with `while` and `do-while` loops | `MushroomIdentifierLoop.java` |
+| 2 | Mushroom Identifier | Nested `if / else`
 
 ---
 
@@ -16,9 +16,7 @@ Two console programs written in Java to practise **variables, operators, decisio
 3. [How to Run](#how-to-run)
 4. [Project 1: Bicycle Rental Shop](#project-1-bicycle-rental-shop)
 5. [Project 2: Mushroom Identifier](#project-2-mushroom-identifier)
-6. [Flowcharts](#flowcharts)
-7. [Project Files](#project-files)
-8. [Possible Improvements](#possible-improvements)
+
 
 ---
 
@@ -120,7 +118,7 @@ Total rental fee: 9000 RWF
 
 ### Test cases
 
-| Start | End | Expected |
+| Start | End | Expected |2
 |---|---|---|
 | 6 | 8 | 1500 RWF |
 | 13 | 15 | 2500 RWF |
@@ -193,20 +191,6 @@ Your mushroom is: Girolle
 | ring: no, gills: yes, cup: no | Girolle |
 
 ---
-
-## Flowcharts
-
-Flowcharts for both projects are drawn by hand on A4 paper using the standard symbols:
-
-| Symbol | Meaning |
-|---|---|
-| Oval | Start / End |
-| Parallelogram | Input / Output |
-| Rectangle | Process |
-| Diamond | Decision (yes / no) |
-
-- **Project 1:** the loop is drawn as an arrow from `h = h + 1` back to the `h < end ?` decision.
-- **Project 2:** the decision tree is drawn from the "Has a ring?" diamond downwards, ending in six mushroom outcomes.
 
 
 ---
