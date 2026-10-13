@@ -16,7 +16,7 @@ public class BicycleRental {
         System.out.print("Enter ending time: ");
         endTime = input.nextInt();
 
-        // Check whether the entered times are valid
+       
         if (startTime < 0 || startTime > 23
                 || endTime < 1 || endTime > 24
                 || startTime >= endTime) {
@@ -26,7 +26,6 @@ public class BicycleRental {
         } else {
             currentHour = startTime;
 
-            // Calculate the cost for every rented hour
             while (currentHour < endTime) {
 
                 if (currentHour < 7) {
