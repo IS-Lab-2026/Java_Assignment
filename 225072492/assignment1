@@ -1,0 +1,54 @@
+
+package javaapplication1;
+import java.util.Scanner;
+
+public class BicycleRental {
+    public static void main(String[]arg){
+        Scanner input = new Scanner(System.in);
+        int startTime;
+        int endTime;
+        int hours;
+        int total = 0 ;
+        int rate = 0 ;
+        System.out.print("enter starting time");
+        startTime = input.nextInt();
+        
+         System.out.print("enter ending time");
+         endTime = input.nextInt();
+         if(startTime<0|| startTime>23){
+             System.out.println("invalid starting time");}
+         else if(endTime<1|| endTime>24){
+             
+             System.out.print("invalid ending time");}
+         else if (startTime>=endTime)
+         {System.out.print("starting time must not be greater than ending time");}
+         else{    
+               
+        hours = endTime - startTime;
+                 
+         if(startTime>=0 && endTime<7|| startTime>=21 && endTime<24){
+        rate = 500;
+    }
+         
+         else if(startTime>=7 && endTime<14||startTime>=19 && endTime<21){
+        rate = 1000;
+    }
+         else {
+        rate = 1500;
+    }  
+    
+         total=hours*rate;
+         System.out.println("total amount to pay is"+ total +"rwf");
+                  }
+         }
+}
+    
+         
+    
+         
+        
+      
+   
+     
+
+
