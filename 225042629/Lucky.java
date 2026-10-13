@@ -1,6 +1,4 @@
-/*
- 
- */
+
 
 package com.mycompany.lucky;
 import java.util.Scanner;
