@@ -1,218 +1,228 @@
 # Time Manager – Rental Cost Calculator
 
-## 1. Project Description
+## Project description
 
-`timemanager.java` is a Java program that asks the user for a starting time and an ending time, checks whether the entered times are valid, and calculates the total rental cost using different hourly rates.
+This Java program asks the user for a starting hour and an ending hour. It checks the entered times and calculates a rental cost using the hourly rates written in the source code.
 
-## 2. Features
-
-- Reads the starting and ending hours from the keyboard.
-- Checks for invalid starting and ending times.
-- Ensures that the starting time is earlier than the ending time.
-- Calculates the rental cost hour by hour.
-- Displays the total rental cost in Rwandan francs (RWF).
-
-## 3. Requirements
+## Requirements
 
 - Java Development Kit (JDK)
-- A Java editor or terminal, such as VS Code, NetBeans, or Command Prompt
+- VS Code, NetBeans, or another Java editor
 
-## 4. How to Run the Program
+## How to run it in VS Code
 
-1. Save the source code in a file named `timemanager.java`.
-2. Open a terminal in the folder containing the file.
-3. Compile the program:
+1. Save the source code as `timemanager.java`.
+2. Open the folder containing `timemanager.java` in VS Code.
+3. Open **Terminal → New Terminal**.
+4. Compile the program:
 
    ```bash
    javac timemanager.java
    ```
 
-4. Run the program:
+5. Run the program:
 
    ```bash
    java timemanager
    ```
 
-5. Enter the starting and ending times when prompted.
+6. Enter a starting time and an ending time when prompted.
 
-## 5. Hourly Rates
+## Complete line-by-line explanation
 
-The program uses these hourly rates:
+The explanations below follow the code in `timemanager.java`.
 
-| Hour values | Cost per hour |
-|---|---:|
-| 0–6 | 500 RWF |
-| 7–13 | 1,000 RWF |
-| 14–18 | 1,500 RWF |
-| 19–20 | 1,000 RWF |
-| 21–23 | 500 RWF |
-
-The program counts each whole hour from the starting time up to, but not including, the ending time.
-
-## 6. Example
-
-### Input
-
-```text
-Enter starting time: 8
-Enter ending time: 12
-```
-
-### Calculation
-
-- Hour 8: 1,000 RWF
-- Hour 9: 1,000 RWF
-- Hour 10: 1,000 RWF
-- Hour 11: 1,000 RWF
-
-Total: 1,000 + 1,000 + 1,000 + 1,000 = 4,000 RWF
-
-### Output
-
-```text
-Total rent cost: 4000 RWF
-```
-
-## 7. Line-by-Line Code Explanation
-
-### Importing Scanner
+### 1. Import Scanner
 
 ```java
 import java.util.Scanner;
 ```
 
-Imports the `Scanner` class so the program can read keyboard input.
+- `import` makes a class from a Java package available to this program.
+- `java.util` is the package containing `Scanner`.
+- `Scanner` is used to read input from the keyboard.
 
-### Declaring the class
+### 2. Declare the class
 
 ```java
 public class timemanager {
 ```
 
-Declares a public class named `timemanager`. The source file should be named `timemanager.java`.
+- `public` means the class can be accessed from outside its package.
+- `class` declares a Java class.
+- `timemanager` is the class name.
+- `{` begins the class body.
 
-### The main method
+The source filename is `timemanager.java`, matching the class name.
+
+### 3. Main method
 
 ```java
 public static void main(String[] args) {
 ```
 
-This is the main method where Java begins running the program.
+This is the method Java runs first when starting this program.
 
-- `public`: makes the method accessible to the Java runtime.
-- `static`: lets Java call the method without creating an object first.
-- `void`: means the method does not return a value.
-- `main`: the method Java looks for to start the program.
-- `String[] args`: receives optional command-line text arguments.
+- `public`: accessible to the Java runtime.
+- `static`: can be called without first creating an object.
+- `void`: returns no value.
+- `main`: the program's entry-point method.
+- `String[] args`: holds optional command-line arguments.
+- `{` begins the method body.
 
-### Creating a Scanner
+### 4. Create a Scanner
 
 ```java
 Scanner input = new Scanner(System.in);
 ```
 
-Creates a Scanner named `input` that reads data typed by the user.
+Creates a Scanner object named `input`. `System.in` tells it to read keyboard input.
 
-### Reading the starting time
+### 5. Ask for the starting time
 
 ```java
 System.out.print("Enter starting time: ");
 int begining = input.nextInt();
 ```
 
-Displays a prompt and reads the starting hour as an integer. The variable `begining` stores the value.
+- `System.out.print(...)` displays the prompt without moving to a new line.
+- `int` declares a whole-number variable.
+- `begining` stores the starting hour (the variable is spelled this way in the supplied code).
+- `=` assigns a value.
+- `input.nextInt()` reads an integer entered by the user.
 
-### Reading the ending time
+### 6. Ask for the ending time
 
 ```java
 System.out.print("Enter ending time: ");
 int end = input.nextInt();
 ```
 
-Displays a prompt and reads the ending hour into the variable `end`.
+Displays the ending-time prompt and stores the user's integer answer in `end`.
 
-### Validating the times
+### 7. Validate the starting time
 
 ```java
 if (begining < 0) {
     System.out.println("Invalid start time.");
 } else if (begining > 23) {
     System.out.println("Invalid start time.");
-} else if (end < 1) {
+}
+```
+
+- `if` tests a condition.
+- `<` means less than. The first condition rejects a starting time below `0`.
+- `else if` tests another condition when the earlier condition is false.
+- `>` means greater than. The second condition rejects a starting time above `23`.
+- `System.out.println(...)` prints a message and moves to the next line.
+
+### 8. Validate the ending time
+
+```java
+else if (end < 1) {
     System.out.println("Invalid end time.");
 } else if (end > 24) {
     System.out.println("Invalid end time.");
-} else if (begining >= end) {
+}
+```
+
+`end < 1` rejects ending times below `1`; `end > 24` rejects ending times above `24`. Each invalid condition prints `Invalid end time.`
+
+### 9. Check that the start is earlier than the end
+
+```java
+else if (begining >= end) {
     System.out.println("Start time must be before end time.");
 }
 ```
 
-The `if` and `else if` statements check conditions in order:
+`>=` means greater than or equal to. This rejects a starting time that is the same as, or later than, the ending time.
 
-- `begining < 0`: rejects a starting hour below 0.
-- `begining > 23`: rejects a starting hour above 23.
-- `end < 1`: rejects an ending hour below 1.
-- `end > 24`: rejects an ending hour above 24.
-- `begining >= end`: rejects a starting time that is equal to or later than the ending time.
-
-`<` means less than, `>` means greater than, and `>=` means greater than or equal to. `System.out.println()` displays a message and moves to a new line.
-
-### Initializing the cost and current hour
+### 10. Start calculating the cost
 
 ```java
-int totalCost = 0;
-int currentHour = begining;
+else {
+    int totalCost = 0;
+    int currentHour = begining;
 ```
 
-Sets the total cost to zero and starts the hourly calculation at the entered starting hour.
+The `else` block runs only if none of the earlier validation conditions matched. `totalCost = 0` initializes the running cost, and `currentHour = begining` starts the calculation at the starting hour.
 
-### Repeating for each hour
+### 11. Repeat for each hour
 
 ```java
 while (currentHour < end) {
 ```
 
-Repeats the calculation while `currentHour` is less than the ending time. The ending hour itself is not counted.
+`while` repeats its block as long as the condition is true. The loop stops when `currentHour` reaches `end`, so the ending hour is not included.
 
-### Adding the hourly rate
+### 12. Add the rate for hours 0–6
 
 ```java
 if (currentHour >= 0 && currentHour < 7) {
     totalCost = totalCost + 500;
-} else if (currentHour >= 21 && currentHour < 24) {
+}
+```
+
+`>=` means greater than or equal to. `&&` means AND, so both conditions must be true. For hours `0` through `6`, the program adds `500` RWF to the previous total.
+
+### 13. Add the rate for hours 21–23
+
+```java
+else if (currentHour >= 21 && currentHour < 24) {
     totalCost = totalCost + 500;
-} else if (currentHour >= 7 && currentHour < 14) {
+}
+```
+
+For current hours `21`, `22`, or `23`, this branch adds `500` RWF.
+
+### 14. Add the rate for hours 7–13
+
+```java
+else if (currentHour >= 7 && currentHour < 14) {
     totalCost = totalCost + 1000;
-} else if (currentHour >= 19 && currentHour < 21) {
+}
+```
+
+For current hours `7` through `13`, this branch adds `1,000` RWF.
+
+### 15. Add the rate for hours 19–20
+
+```java
+else if (currentHour >= 19 && currentHour < 21) {
     totalCost = totalCost + 1000;
-} else if (currentHour >= 14 && currentHour < 19) {
+}
+```
+
+For current hours `19` and `20`, this branch adds `1,000` RWF.
+
+### 16. Add the rate for hours 14–18
+
+```java
+else if (currentHour >= 14 && currentHour < 19) {
     totalCost = totalCost + 1500;
 }
 ```
 
-Checks which time range contains the current hour and adds the corresponding rate to `totalCost`.
+For current hours `14` through `18`, this branch adds `1,500` RWF.
 
-- `&&` means AND: both conditions must be true.
-- `totalCost = totalCost + 500` adds 500 to the previous total.
-- The same addition pattern is used for the 1,000 RWF and 1,500 RWF rates.
-
-### Moving to the next hour
+### 17. Move to the next hour
 
 ```java
 currentHour = currentHour + 1;
 ```
 
-Increases `currentHour` by one so the loop can calculate the next hour and eventually stop.
+Adds one to `currentHour` so the loop processes the next hour and eventually stops.
 
-### Displaying the total
+### 18. Display the final cost
 
 ```java
 System.out.println("Total rent cost: " + totalCost + " RWF");
 ```
 
-Displays the calculated total followed by the currency label `RWF`.
+Displays the text, the calculated value of `totalCost`, and the currency label `RWF`. The `+` operator joins these parts into one output message.
 
-### Closing the Scanner
+### 19. Close the Scanner
 
 ```java
 input.close();
@@ -220,23 +230,34 @@ input.close();
 
 Closes the Scanner after the program has finished reading input.
 
-### Closing braces
+### 20. Closing braces
 
-The `}` symbols close the blocks opened by the class, main method, loop, and conditional statements.
+The `}` symbols close the blocks opened by the class, `main` method, validation conditions, `while` loop, and `else` block.
 
-## 8. Important Java Concepts Used
+## Hourly rate summary
 
-- **Variables:** `begining`, `end`, `totalCost`, and `currentHour` store values.
-- **Input:** `Scanner` and `nextInt()` read keyboard input.
-- **Conditions:** `if`, `else if`, `<`, `>`, `>=`, and `&&` make decisions.
-- **Loop:** `while` repeats the hourly calculation.
-- **Arithmetic:** addition accumulates the cost and increments the hour.
-- **Output:** `System.out.print()` and `System.out.println()` display messages.
+| Current hour | Rate added |
+|---|---:|
+| 0–6 | 500 RWF per hour |
+| 7–13 | 1,000 RWF per hour |
+| 14–18 | 1,500 RWF per hour |
+| 19–20 | 1,000 RWF per hour |
+| 21–23 | 500 RWF per hour |
 
-## 9. Author
+## Example
 
-Add your name here.
+Starting time: `8`  
+Ending time: `12`
 
----
+The loop processes hours `8`, `9`, `10`, and `11`. Each adds `1,000` RWF:
 
-This README describes the behavior of the supplied source code. The program expects whole-number hours and calculates the cost using the hourly rates defined in the code.
+`1,000 + 1,000 + 1,000 + 1,000 = 4,000 RWF`
+
+Output:
+
+```text
+Total rent cost: 4000 RWF
+```
+
+
+
