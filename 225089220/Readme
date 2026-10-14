@@ -1,1 +1,25 @@
+#we have two programs, i am going to explain for each program 
 
+Bicycle_Program
+I work on how people can rent bicycle from our company
+
+codes explanations
+i am going to explain every block of codes and what they work on the program
+
+> on the 3rd row we defined the class which is class bicycle
+> on the 5th row we defined the input scanner to get all inputs values
+> on (13-19) rows are for Check input constraints on (21-29) rows are for Loop through each hour interval
+> on 31 row is for output for the total cost base on the inputs values
+> on 32 row is for closing the input scanner
+
+distribution support
+If you have any distribution support for this program you can arise it.
+
+mushroom_program
+Identifying the type of mushroom
+Codes Explation
+By doing this program, The type of mushroom will be identified based on the answers of the user through inputs
+> on (13-19)rows, codes was testing if the mushroom have gills, by asking the question: Does it have gills?, if the answer is no. the type of mushroom is Cepe de bordeau because it is only one without the gills. and if the answer is yes, we gonna test with other questions.
+> on(23-26)rows, codes was testing if the mushroom growth in a forest, by asking the question: Does it grow in a forest?, if the answer is yes. the answer is Cepe de bor deau, Girolle, pied bleu, Amanitetue-mouche. because its grows in a forest. that's why we must check with other questions to remain with only on type of mushroom.
+> on(30-39) rows, if the questions above have the answer is yes, these codes will work on the third question which is Does it have a ring? to check the type of mushroom with ring. if the response is ye then the mushroom will be Amanite tue-mouche. other wise will be the Pied bleu. 
+> on (39-52) rows, before when we were checking on the Does your mushroom grow in a forest? we worked on whene the response is ye but when it is no , we will check the next. with asking that question: Does it have a convex cup? it the answer is yes the type of mushroom will be the Does it have a convex cup? other wise it will be the Coprin chevelu
