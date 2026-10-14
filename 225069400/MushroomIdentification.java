@@ -50,4 +50,4 @@ public class MushroomIdentification {
 
         input.close();
     }
-}no
+}
