@@ -1,5 +1,4 @@
-1. MushroomGuess
-Purpose
+1. MushroomGuess:
 This program identifies a mushroom by asking the user questions that require yes or no answers.
 Explanation
 - package javaapplication1; : Places the class in the javaapplication1 package.
@@ -15,8 +14,7 @@ Explanation
 - Nested switch statements :Ask further questions to narrow down the mushroom type.
 
 
-2. BicycleRental
-Purpose
+2. BicycleRental:
 This program calculates the bicycle rental cost using the start time, end time, number of hours, and hourly rate.
 Explanation
 - package javaapplication1; : Places the class in the package.
