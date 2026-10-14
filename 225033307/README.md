@@ -1,1 +1,46 @@
 
+FOR PROBLEM 1:
+
+Problem Breakdown:
+
+Inputs: Two integers representing the start hour (0 to 23) and end hour (1 to 24), where start < end.
+
+Hourly Rates:
+
+0 - 7 and 21 - 24: 500 RWF per hour
+
+7 - 14 and 19 - 21: 1000 RWF per hour
+
+14 - 19: 1500 RWF per hour
+ 
+Logic: We loop hour-by-hour from the start time to the end time, check which range each hour falls into, accumulate the cost, and print the total.
+
+FOR PROBLEM 2:
+
+Problem Breakdown:
+
+The 6 Mushrooms:
+
+Agaric Jaunissant
+
+Amanite tue-mouche
+
+Cepe de bordeau
+
+Coprin chevelu
+
+Girolle
+
+Pied bleu
+
+Characteristics:
+
+Pores vs Gills: Cepe de bordeaux is the only one with pores; the rest have gills.
+
+Habitat: Coprin chevelu and Agaric jaunissant grow in meadows; the rest grow in forests.
+
+Cup Shape: Only Agaric jaunissant, Amanite tue-mouche, and Pied bleu have a convex cup.
+
+Ring: Only Agaric jaunissant, Amanite tue-mouche, and Coprin chevelu have a ring.
+
+Logic: The program asks up to 3 questions (using a decision tree based on the properties above) to uniquely identify the chosen mushroom.
