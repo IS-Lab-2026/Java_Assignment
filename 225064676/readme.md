@@ -1,4 +1,5 @@
 # Java Individual Lab 1
+
 ## Introduction
 
 This project contains two Java programs: Bicycle Rental and Mushroom Identification. The programs demonstrate how basic Java concepts such as variables, user input, decision statements, loops, and operators can be used to solve practical problems.
@@ -24,6 +25,8 @@ Once the hourly rate has been selected, the program adds it to the `total` varia
 ### Example
 
 If the user enters 7 as the starting hour and 10 as the ending hour, the program calculates the cost for hours 7, 8, and 9. Each hour costs 1,000 RWF, so the total rental cost is 3,000 RWF.
+
+### Importance of the Program
 
 ## 2. Mushroom Identification Program
 
