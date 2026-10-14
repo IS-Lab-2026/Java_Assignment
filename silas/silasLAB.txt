@@ -1,0 +1,98 @@
+  
+PROBLEM:2
+
+import java.util.Scanner;
+
+public class BicycleRental {
+    public static void main(String[] args) {
+ // OPENING BLOCK1
+       Scanner input = new Scanner(System.in);
+
+      // CLOSING BLOCK1
+
+  //OPENING BLOCK2
+      System.out.print("Enter starting hour (0-23): ");
+        int startTime = input.nextInt();
+
+        System.out.print("Enter ending hour (1-24): ");
+        int endTime = input.nextInt();
+
+       //CLOSING BLOCK2
+
+   //OPENING BLOCK3     if (startTime < 0 || startTime > 23 || endTime < 1 || endTime > 24) {
+            System.out.println("Error: Start hour must be 0-23 and end hour must be 1-24.");
+            return;
+        }
+        if (startTime >= endTime) {
+            System.out.println("Error: Starting time must be strictly less than ending time.");
+            return;
+        }
+//CLOSING BLOCK3
+        int totalRent = 0;
+
+      //OPENING BLOCK4
+        for (int hour = startTime; hour < endTime; hour++) {
+            if ((hour >= 0 && hour < 7) || (hour >= 21 && hour < 24)) {
+                totalRent += 500;  // 500 RWF bracket
+            } else if ((hour >= 7 && hour < 14) || (hour >= 19 && hour < 21)) {
+                totalRent += 1000; // 1000 RWF bracket
+            } else if (hour >= 14 && hour < 19) {
+                totalRent += 1500; 
+            }
+        } 
+//CLOSING BLOCK4
+
+        
+       //OPENING BLOCK1
+ System.out.println("Total rental cost: " + totalRent + " RWF");//CLOSING BLOCK4
+       input.close();
+}
+}
+
+PROBLEM 2:
+
+import java.util.Scanner;
+
+public class MushroomIdentifier {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+    /*LINE1*/   System.out.println("--- Mushroom Identifier ---");
+        
+   /*LINE2*/       System.out.print("Does your mushroom have gills? (yes/no): ");
+        String gills = input.nextLine().trim().toLowerCase();
+
+        if (gills.equals("no")) {
+           
+        /*LINE3/      System.out.println("\nYour mushroom is: Cepe de bordeau");
+        } else {
+            
+            /*LINE4*/  System.out.print("Does your mushroom grow in a forest? (yes/no): ");
+            String forest = input.nextLine().trim().toLowerCase();
+
+           /*OPENING BLOCK5*/   if (forest.equals("yes")) {
+               
+                System.out.print("Does your mushroom have a ring? (yes/no): ");
+                String ring = input.nextLine().trim().toLowerCase();
+
+                if (ring.equals("yes")) {
+                    System.out.println("\nYour mushroom is: Amanite tue-mouche");
+                } else {
+                    System.out.println("\nYour mushroom is: Pied bleu");
+                }
+                
+            } else {
+               
+                System.out.print("Does your mushroom have a convex cup? (yes/no): ");
+                String convex = input.nextLine().trim().toLowerCase();
+
+                if (convex.equals("yes")) {
+                    System.out.println("\nYour mushroom is: Agaric jaunissant");
+                } else {
+                    System.out.println("\nYour mushroom is: Coprin chevelu");
+                }
+            }/*CLOSING BLOCK5*/
+        }
+
+    input.close();
+}
