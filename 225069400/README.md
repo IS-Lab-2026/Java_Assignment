@@ -1,4 +1,5 @@
-Java Console Applications
+ PROGRAM DESCRIPTION
+ 
 1. Project Overview
 This project contains two Java console-based applications.
 
@@ -6,8 +7,8 @@ The applications demonstrate basic Java programming concepts, including user inp
 
 The two programs are:
 
-BicycleRental – Calculates the total cost of renting a bicycle based on the starting and ending hours.
-MushroomGuess – Identifies a mushroom from a list of six mushrooms by asking the user a series of yes/no questions.
+.BicycleRental: Calculates the total cost of renting a bicycle based on the starting and ending hours.
+.MushroomGuess: Identifies a mushroom from a list of six mushrooms by asking the user a series of yes/no questions.
 Both programs run in the terminal or command prompt.
 
 2. Project Objectives
@@ -21,22 +22,25 @@ Perform calculations using integer variables.
 Work with strings and string comparison.
 Build simple interactive console applications.
 Organize Java code into classes and methods.
+
 3. Technologies Used
 Programming Language: Java
 Input Handling: java.util.Scanner
 Execution Environment: Java Virtual Machine (JVM)
 Interface: Command-line interface (CLI)
 Output: Console messages using System.out.println() and System.out.print()
-4. Project Structure
+
+5. Project Structure
 The project contains the following Java files:
 
-Java-Console-Applications/
-├── BicycleRental.java
-├── MushroomGuess.java
-└── README.md
+Java coonsole Applications
+.BicycleRental.java
+.MushroomGuess.java
+.README.md
 Each Java program has its own public class and should be saved in a separate file with the corresponding class name.
 
 5. Application One: Bicycle Rental
+   
 5.1 Description
 The BicycleRental program calculates the total rental cost according to the number of hours a bicycle is rented and the hourly rates defined in the program.
 
@@ -56,6 +60,7 @@ Conditional statements determine the hourly rental rate.
 The hourly rate is added to the total.
 The final rental cost is displayed.
 The scanner is closed.
+
 5.3 Bicycle Rental Pricing
 The program uses the following hourly pricing rules:
 
@@ -77,6 +82,7 @@ Explanation:
 07:00–08:00 costs 1,000 RWF.
 08:00–09:00 costs 1,000 RWF.
 Total cost: 2,500 RWF.
+
 5.5 Java Concepts Used
 Scanner for reading keyboard input.
 int variables for storing hours and costs.
@@ -84,7 +90,9 @@ A for loop for processing rental hours.
 if, else if, and else for selecting hourly rates.
 The += operator for accumulating the total cost.
 System.out.print() and System.out.println() for displaying messages.
+
 6. Application Two: Mushroom Guessing
+
 6.1 Description
 The MushroomGuess program identifies a mushroom from six possible choices by asking a sequence of yes/no questions about its characteristics.
 
@@ -101,6 +109,7 @@ Cepe de Bordeaux
 Coprin chevelu
 Girolle
 Pied bleu
+
 6.3 How It Works
 The program imports the Scanner class.
 It displays the list of six mushrooms.
@@ -112,6 +121,7 @@ For forest-growing mushrooms, it asks whether the mushroom has a convex cup.
 The program uses nested conditional statements to evaluate the answers.
 It displays the predicted mushroom name.
 The scanner is closed.
+
 6.4 Decision Rules
 The program follows these rules:
 
@@ -139,6 +149,7 @@ Does your mushroom have gills? (yes/no): yes
 Does your mushroom grow in a forest? (yes/no): no
 Does your mushroom have a ring? (yes/no): yes
 Your mushroom is: Agaric Jaunissant
+
 6.6 Java Concepts Used
 Scanner for reading user responses.
 String variables for storing answers.
@@ -147,14 +158,18 @@ toLowerCase() for converting answers to lowercase.
 equals() for comparing strings.
 Nested if and else statements for decision-making.
 Console output for displaying questions and results.
+
 7. Requirements
+   
 Before running the applications, ensure that you have:
 
 A computer with Java installed.
 A Java Development Kit (JDK).
 A terminal or command prompt.
 A text editor or Java IDE, such as IntelliJ IDEA, Eclipse, or Visual Studio Code.
+
 8. Installation and Setup
+   
 Step 1: Install Java
 Install a suitable JDK if Java is not already installed.
 
@@ -166,6 +181,7 @@ Step 2: Create the Project Folder
 Create a folder named Java-Console-Applications.
 
 Step 3: Create the Java Files
+
 Save the bicycle rental code in BicycleRental.java.
 
 Save the mushroom guessing code in MushroomGuess.java.
@@ -176,6 +192,7 @@ Step 4: Open the Terminal
 Navigate to the project folder using the terminal or command prompt.
 
 9. How to Compile and Run
+    
 9.1 Run the Bicycle Rental Program
 Compile the program:
 
@@ -197,6 +214,7 @@ Answer each question with yes or no.
 Note: The two Java classes should be compiled and executed separately because each contains its own main() method.
 
 10. Input and Output
+    
 BicycleRental
 Inputs:
 
