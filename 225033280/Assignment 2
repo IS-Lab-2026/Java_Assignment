@@ -1,0 +1,54 @@
+import java.util.Scanner;
+
+public class MushroomIdentifier {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("=== Mushroom Identification Game ===");
+        System.out.println("Think of one of the following mushrooms:");
+        System.out.println("1. Agaric Jaunissant");
+        System.out.println("2. Amanite tue-mouche");
+        System.out.println("3. Cepe de bordeaux");
+        System.out.println("4. Coprin chevelu");
+        System.out.println("5. Pied bleu");
+        System.out.println("\nAnswer the questions truthfully with 'yes' or 'no'.\n");
+        
+        
+        System.out.print("Does your mushroom have a ring? (yes/no): ");
+        String q1 = scanner.nextLine().trim().toLowerCase();
+        
+        if (q1.equals("no")) {
+            
+            System.out.print("Does your mushroom have gills? (yes/no): ");
+            String q2 = scanner.nextLine().trim().toLowerCase();
+            
+            if (q2.equals("yes")) {
+                System.out.println("\nResult: Your mushroom is the **Pied bleu**.");
+            } else {
+                System.out.println("\nResult: Your mushroom is the **Cepe de bordeaux**.");
+            }
+        } else if (q1.equals("yes")) {
+    
+            System.out.print("Does your mushroom have a convex cup? (yes/no): ");
+            String q2 = scanner.nextLine().trim().toLowerCase();
+            
+            if (q2.equals("no")) {
+                System.out.println("\nResult: Your mushroom is the **Coprin chevelu**.");
+            } else {
+              
+                System.out.print("Does your mushroom grow in a forest? (yes/no): ");
+                String q3 = scanner.nextLine().trim().toLowerCase();
+                
+                if (q3.equals("yes")) {
+                    System.out.println("\nResult: Your mushroom is the **Amanite tue-mouche**.");
+                } else {
+                    System.out.println("\nResult: Your mushroom is the **Agaric Jaunissant**.");
+                }
+            }
+        } else {
+            System.out.println("Invalid input! Please answer strictly with 'yes' or 'no'.");
+        }
+        
+        scanner.close();
+    }
+}
