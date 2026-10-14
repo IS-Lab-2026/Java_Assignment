@@ -48,16 +48,7 @@ public class mushroomGuess {
             }
     }
         }
-    
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                }
+}
                 
                 
         
