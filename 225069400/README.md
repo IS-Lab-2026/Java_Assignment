@@ -1,4 +1,4 @@
- PROGRAM DESCRIPTION
+ PROGRAMS DESCRIPTION
  
 1. Project Overview
 This project contains two Java console-based applications.
