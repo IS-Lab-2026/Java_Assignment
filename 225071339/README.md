@@ -16,6 +16,7 @@ Explanation
 
 2. BicycleRental:
 This program calculates the bicycle rental cost using the start time, end time, number of hours, and hourly rate.
+
 Explanation
 - package javaapplication1; : Places the class in the package.
 - import java.util.Scanner; : Imports keyboard-input functionality.
