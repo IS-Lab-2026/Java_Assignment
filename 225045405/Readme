@@ -1,1 +1,98 @@
+Reg number: 225045405;                  name: NIYONKURU Bonheur
+The codes above are for two different programs, and I am going to explain more for each:
+
+# Mushroom_type
+
+## Project overview
+
+This program identifies one of the five mushrooms listed in the assignment by asking the user up to three yes/no questions. It uses nested `if-else` statements.
+
+## Mushrooms included
+
+- Agaric Jaunissant
+- Amanite Tue-Mouche
+- Cèpe de Bordeaux
+- Coprin Chevelu
+- Pied Bleu
+
+The assignment text says the user chooses one of six mushrooms, but only five are listed. This program therefore identifies the five mushroom types provided in the question.
+
+## Characteristics used
+
+ Mushroom type       Has gills?      Grows in a forest?    Has a ring?      Has a convex cup? 
+
+ Agaric Jaunissant     Yes                No                 Yes                  Yes 
+ Amanite Tue-Mouche    Yes                Yes                Yes                  Yes 
+ Cèpe de Bordeaux      No                 Yes                No                   No 
+ Coprin Chevelu        Yes                No                 Yes                  No 
+ Pied Bleu             Yes                Yes                No                   Yes 
+
+## Requirements
+
+> Java Development Kit (JDK) installed
+> Java IDE, or a terminal
+> The source file `Mushroom_type.java`
+
+
+## Main Java concepts used
+
+- `Scanner` to read the user's responses(Resp)
+- `String` to store each Response(Resp)
+- `equalsIgnoreCase()` to accept responses such as `yes`, `Yes`, or `YES`.
+- `if`, `else if`, and `else` for decisions
+- Nested decisions to choose the next question based on previous Response(Resp)
+
+## Decision process
+
+1. Ask whether the mushroom has gills.
+   - No: identify it as Cèpe de Bordeaux.
+   - Yes: continue to the forest question.
+2. Ask whether it grows in a forest.
+   - No: ask whether it has a convex cup. Yes means Agaric Jaunissant; no means Coprin Chevelu.
+   - Yes: ask whether it has a ring. Yes means Amanite Tue-Mouche; no means Pied Bleu.
+
+The program asks no more than three questions for a valid sequence of truthful yes/no responses.
+
+## Input note
+
+Enter `yes` or `no`. The program ignores capitalization. Any other response is reported as invalid at the point where it is checked.
+
+
+
+# Bicycle Rental System
+
+## Project overview
+
+This program calculates the total cost of renting a bicycle. The user enters the starting hour and ending hour, and the program calculates the price for each rented hour using the correct hourly rate.
+
+## Hourly Rates
+
+Rented Hours                 amount rented
+0 to before 7                500 RWF 
+7 to before 14               1,000 RWF 
+14 to before 19              1,500 RWF 
+19 to before 21              1,000 RWF 
+21 to before 24              500 RWF 
+
+Here, we include only the starting time, but the ending time is excluded.
+
+# Requirements
+> Java Development Kit (JDK) installed
+> The source file "Bicycle_rental.java"
+>Java IDE
+
+## Main Java concepts used
+
+> `Scanner` to read keyboard input
+> `int` variables to store hours and the total cost
+> `while` loop to process every rented hour
+> `if`, `else if`, and `else` to choose the hourly rate
+> Arithmetic operators to add the hourly costs
+> `time++` to move to the next hour
+
+
+
+The assignment states that the input times are valid: `startTime` is between 0 and 23, `endTime` is between 1 and 24, and the start time is earlier than the end time. This version relies on those conditions.
+
+
 
