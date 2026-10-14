@@ -54,8 +54,8 @@ Looping hour by hour means a rental that crosses several price bands (for exampl
 
 Variables, `Scanner` input, relational and logical operators, `if / else if`, and a `for` loop.
 
-
 #PROBLEM 2
+
 # Mushroom Guessing Game
 
 A Java program that guesses which of six mushrooms the user is thinking of by asking yes/no questions.
