@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class BicycleRental {
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        int startTime, endTime;
+        int totalCost = 0;
+
+        System.out.print("Enter starting hour (0-23): ");
+        startTime = input.nextInt();
+
+        System.out.print("Enter ending hour (1-24): ");
+        endTime = input.nextInt();
+
+        for (int hour = startTime; hour < endTime; hour++) {
+
+            if (hour < 7 || hour >= 21) {
+                totalCost += 500;
+            } else if (hour < 14) {
+                totalCost += 1000;
+            } else if (hour < 19) {
+                totalCost += 1500;
+            } else {
+                totalCost += 1000;
+            }
+        }
+
+        System.out.println("Starting hour: " + startTime);
+        System.out.println("Ending hour: " + endTime);
+        System.out.println("Total rental cost: " + totalCost + " RWF");
+
+        input.close();
+    }
+}
