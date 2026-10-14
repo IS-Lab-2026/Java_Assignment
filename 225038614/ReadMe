@@ -1,1 +1,100 @@
 
+Bicycle Rental System
+
+This Java program calculates the total cost of renting a bicycle based on the rental start time and end time. The hourly rate varies depending on the time of day.
+
+Rental Rates
+
+- 500 RWF/hour: 00:00–07:00 and 21:00–24:00
+- 1,000 RWF/hour: 07:00–14:00 and 19:00–21:00
+- 1,500 RWF/hour: 14:00–19:00
+
+Features
+
+- Accepts start and end times from the user.
+- Validates the entered times.
+- Calculates the rental cost using a "while" loop.
+- Displays the total cost in Rwandan francs (RWF).
+
+How to Run
+
+1. Install the Java Development Kit (JDK).
+
+2. Save the source code as "BicycleRental.java".
+
+3. Open a terminal in the folder containing the file.
+
+4. Compile the program:
+   
+   javac BicycleRental.java
+
+5. Run the program:
+   
+   java BicycleRental
+
+Example Output
+
+Enter start time (0-23): 8
+Enter end time (1-24): 10
+Total cost: 2000 RWF
+
+Concepts Used
+
+- Variables and data types
+- User input using "Scanner"
+- Conditional statements ("if-else")
+- "while" loop
+- Input validation
+
+Mushroom Identification System
+
+The Mushroom Identification System is a console-based Java application that identifies mushrooms based on their physical characteristics and growing environment. It asks the user a series of yes-or-no questions and displays the identified mushroom according to the answers provided.
+
+3. Objectives
+
+- To practice Java programming.
+- To understand nested "if-else" statements.
+- To collect user input using the "Scanner" class.
+- To apply string comparison using "equalsIgnoreCase()".
+
+4. Technologies Used
+
+- Java
+- Java Development Kit (JDK)
+- GitHub
+
+5. Mushrooms Identified
+
+The program identifies six types of mushrooms:
+
+1. Cèpe de Bordeaux
+2. Agaric jaunissant
+3. Coprin chevelu
+4. Amanite tue-mouche
+5. Pied bleu
+6. Girolle
+
+6. How to Run
+
+1. Save the source code as "MushroomIdentification.java".
+
+2. Open a terminal in the file's directory.
+
+3. Compile the program:
+   
+   "javac MushroomIdentification.java"
+
+4. Run the program:
+   
+   "java MushroomIdentification"
+
+5. Answer the questions using "yes" or "no".
+
+7. Java Concepts
+
+- Classes and the "main()" method
+- User input with "Scanner"
+- Nested "if-else" statements
+- String comparison
+- Console output
+
