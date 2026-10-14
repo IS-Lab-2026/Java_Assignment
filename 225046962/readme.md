@@ -6,7 +6,7 @@ The application uses an **iterative accumulation approach**. Instead of multiply
 
 ---
 
-## 2. Line-by-Line Code Breakdown & Decision Logic
+## 2. Decision Logic
 
 Below is a detailed engineering analysis of how every line of code functions within the Java Virtual Machine (JVM):
 
