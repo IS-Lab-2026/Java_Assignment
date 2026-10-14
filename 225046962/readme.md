@@ -1,292 +1,109 @@
-## QUESTION 1
-## 1. Program Overview & System Mechanics
-The `BicycleRental` application is a computational utility designed to calculate the precise monetary fee for renting a bicycle over a specific time window. 
+# Java Assignment 1: BicycleRental & Mushroom Identification
 
-The application uses an **iterative accumulation approach**. Instead of multiplying the total duration by a single static rate, the system evaluates the rental window **hour-by-hour**. This dynamic approach allows the program to seamlessly adjust pricing when a customer's rental window crosses over different peak and off-peak tariff brackets during the day.
+This repository contains my Java solutions for Individual Lab 1. Both programs run entirely in the terminal, taking user inputs and calculating outputs based on the specific rules from our assignment sheet.
 
 ---
 
-## 2. Decision Logic
+## QUESTION 1: Bicycle Rental System (`BicycleRental.java`)
 
-Below is a detailed engineering analysis of how every line of code functions within the Java Virtual Machine (JVM):
+### 1. Program Overview
+This program is designed to act as an automated billing calculator for a bike rental business. It addresses a real-world scenario where rental pricing is dynamic rather than fixed. Instead of charging a flat rate for the entire trip, the program tracks the rental period from a specific start hour to an end hour and applies different rates depending on the time of day. This program ensures that customers who rent bikes across peak and off-peak hours are billed fairly and accurately according to the exact time slots their rental occupied.
 
-### 2.1 Package Ingestion
-```java
-import java.util.Scanner;
-```
-*   **How it works:** This line imports the pre-built `Scanner` utility class from Java’s core utility package (`java.util`). It acts as a data pipeline, allowing the program to listen to and read text inputs entered by the user via the keyboard console.
+### 2. How the Logic Works to Make Decisions
+The program uses a **loop combined with conditional statements** to make its choices:
+* **The Gatekeeper:** First, an `if` statement checks for mistakes. If a user types times outside the 0-24 range, or sets the start time equal to or ahead of the end time, the program prints an error and stops immediately.
+* **The Clock Loop:** If the times are valid, a `for` loop starts counting from the `startTime` and moves forward 1 hour at a time until it hits the `endTime`.
+* **The Price Picker:** Inside that loop, for every single hour, the computer runs through an `if-else` chain to match that specific hour against the assignment's tariff rules:
+    * If the hour is between **0-7** or **21-24**, it chooses to add **500 RWF** to the bill.
+    * If the hour is between **7-14** or **19-21**, it chooses to add **1000 RWF** to the bill.
+    * If the hour is between **14-19**, it chooses to add **1500 RWF** to the bill.
 
-### 2.2 Structure and Entry Point
-```java
-public class BicycleRental {
-    public static void main(String[] args) {
-```
-*   **How it works:** Defines the blueprint of the program as a public class named `BicycleRental`. Inside it lies the `main` method, which serves as the absolute entry point where the operating system begins executing the program.
+### 3. Java Code Mechanics & Line-by-Line Explanation
+* `import java.util.Scanner;`
+  * **Role & Lore:** This tool imports Java's built-in **Scanner** class. Think of Scanner as an open ear or a direct communication pipeline. Without it, your program is completely deaf and cannot hear anything the user types into the keyboard.
+* `Scanner input = new Scanner(System.in);`
+  * **Role & Lore:** This creates a specific Scanner object named `input` and hooks it directly into the keyboard entry stream (`System.in`). It officially activates the system to start waiting for user typing.
+* `System.out.print("Enter start time (0-23): ");`
+  * **Role & Lore:** This line prints a message to the console screen explicitly **asking the user to type a whole number from the keyboard**.
+* `start = input.nextInt();`
+  * **Role & Lore:** This tells the Scanner to grab the integer value typed by the user on their keyboard and save it inside the memory box named `start`.
+* `if (start < 0 || start > 23 || end < 1 || end > 24 || start >= end)`
+  * **Role & Lore:** A conditional safety wall. It drops the program instantly if the keyboard numbers violate the assignment limits.
+* `for (int hour = start; hour < end; hour++)`
+  * **Role & Lore:** The looping machine that marches forward step-by-step through the timeline to calculate the final RWF costs.
 
-### 2.3 Variable Declaration & Stream Initialization
-```java
-        Scanner input = new Scanner(System.in);
-        int start, end;
-```
-*   **How it works:** The first line instantiates a new `Scanner` object named `input` and hooks it into the standard system input stream (`System.in`). The second line reserves two blocks of memory as integers (`int`) to hold the user's upcoming chronological entries: `start` and `end`.
+### 4. User Interaction & Output Details
+* **User and Program Interaction:** The interaction is a strict back-and-forth conversation. The program asks a question, freezes execution to wait for a human response, and only proceeds once the user hits the "Enter" key.
+* **Keyboard Inputs & Keywords:** The user must enter raw numeric keywords (integers like `13` or `15`). Decimal values or letters will break the communication stream.
+* **Output Display Window:** The standard terminal console behaves as our display window. Once all calculations finish, it instantly outputs the clear final balance string (e.g., `Your payment is: 2500 RWF`), printing it cleanly on a fresh line.
 
-### 2.4 User Data Ingestion
-```java
-        System.out.print("Enter start time (0-23): ");
-        start = input.nextInt();
-
-        System.out.print("Enter end time (1-24): ");
-        end = input.nextInt();
-```
-*   **How it works:** `System.out.print` prints out descriptive prompts onto the command line interface without pushing to a new line. The program then pauses at `input.nextInt()`, blocking execution until the user types an integer and presses Enter, storing the values inside the `start` and `end` variables.
-
-### 2.5 Input Sanitization & Boundary Checking (Guard Gate)
-```java
-        if (start < 0 || start > 23 || end < 1 || end > 24 || start >= end) {
-            System.out.println("Invalid input time.");
-            return;
-        }
-```
-*   **How it works:** This functions as a defensive security guard using logical OR (`||`) operators. It evaluates whether the parameters violate any core assignment constraints:
-    *   Is the starting hour outside 0 to 23?
-    *   Is the ending hour outside 1 to 24?
-    *   Did the user input an end time that occurs before or at the exact same time as the start time (`start >= end`)?
-    *   **Decision:** If any of these are true, it prints an error message and uses the `return` statement to violently terminate execution, protecting the program from running corrupted logic loops.
-
-### 2.6 State Initialization
-```java
-        int totalCost = 0;
-```
-*   **How it works:** Initializes an integer accumulator variable named `totalCost` to 0. This variable will safely hold the running financial balance as the loop calculates the fee.
-
-### 2.7 The Hour-by-Hour Iteration Loop
-```java
-        for (int hour = start; hour < end; hour++) {
-```
-*   **How it works:** A bounded `for` loop that manages the timeline sequence. 
-    *   It initializes a counter variable `hour` at the exact start time (`int hour = start`).
-    *   It executes the logic as long as `hour` is strictly less than the end time (`hour < end`).
-    *   At the end of every loop cycle, it increments the clock time forward by exactly one hour (`hour++`).
-
-### 2.8 The Tariff Decision-Making Matrix
-Inside the loop, a mutually exclusive conditional structure processes each individual clock hour to decide its financial weight:
-
-```java
-            if ((hour >= 0 && hour < 7) || (hour >= 21 && hour < 24)) {
-                totalCost += 500;
-            }
-```
-*   **Decision:** If the current `hour` falls between 00:00 and 06:59, OR falls between 21:00 and 23:59, the program triggers an compound assignment operator (`+=`) to instantly add **500 RWF** to the running `totalCost`.
-
-```java
-            else if ((hour >= 7 && hour < 14) || (hour >= 19 && hour < 21)) {
-                totalCost += 1000;
-            }
-```
-*   **Decision:** If the first condition was false, the JVM evaluates this path. If the current `hour` falls between 07:00 and 13:59, OR between 19:00 and 20:59, it accumulates a standard tariff of **1000 RWF** into `totalCost`.
-
-```java
-            else if (hour >= 14 && hour < 19) {
-                totalCost += 1500;
-            }
-```
-*   **Decision:** If all previous conditions fail, the program verifies if the hour falls into the premium evening peak bracket (14:00 to 18:59). If true, it adds **1500 RWF** to the accumulation block.
-
-### 2.9 Output Display Window
-```java
-        System.out.println("Your payment is: " + totalCost + " RWF");
-    }
-}
-```
-*   **How it works:** Once the loop runs out of hours and terminates, this line prints the final aggregated invoice value to the screen using string concatenation (`+`), displaying the calculated tariff balance cleanly followed by the "RWF" currency denomination label.
-
----
-
-## 3. Required Tools & Environment Setup
-To build, compile, and execute this project locally, your environment requires the following software:
-1. **Java Development Kit (JDK):** Version 11 or newer installed on your machine.
-2. **Terminal Console:** To pass standard system inputs and view output prints (`System.in` / `System.out`).
-
----
-
-## 4. Compilation and Execution
-To run this project from your command line terminal, execute the following commands inside your root project folder:
-
-```sh
-javac -d out src/BicycleRental.java
-java -cp out BicycleRental
-```
-
----
-
-## 5. Execution Verification Example
+### 5. Console Test Example
 ```text
 Enter start time (0-23): 13
 Enter end time (1-24): 15
 Your payment is: 2500 RWF
 ```
-## QUESTION 2
-
-## 1. Program Overview & System Mechanics
-The `Mashroom` application is an interactive expert classification engine. It operates using a **Deterministic Finite Automaton (DFA)** structured as a binary decision tree. 
-
-Instead of searching through a random data array, the application processes structural properties of a target specimen sequentially. By evaluating discrete morphological characteristics (such as a convex cap, structural rings, gills, or growth habitats), the system limits possibilities layer by layer until an absolute biological identification is resolved.
 
 ---
 
-## 2. Line-by-Line Code Breakdown & Decision Logic
+## QUESTION 2: Mushroom Classification System (`Mushroom.java`)
 
-Below is a technical engineering analysis explaining exactly how every statement in your program handles state transitions to reach a classification decision:
+### 1. Program Overview
+This program serves as an interactive biological expert system for identifying fungi varieties. It handles a classic classification problem by translating a botanical dichotomous key into software logic. Given six target mushroom types with overlapping characteristics, the program is engineered to isolate the exact species using the minimum number of steps possible. By prompting the user with simple, targeted features sequentially, the system systematically clears out incorrect matches, ensuring a definitive identification is reached in **at most three questions**.
 
-### 2.1 Package Ingestion
-```java
-import java.util.Scanner;
-```
-*   **How it works:** This line pulls the pre-built `Scanner` utility class from Java's API packages. It acts as an open data conduit between the system's text input console and the running program.
+### 2. How the Logic Works to Make Decisions
+The program uses **nested selection paths** (a decision tree) to isolate the right mushroom:
+* **The First Split:** The program asks if the mushroom has a ring. The computer branches based on this answer. This instantly eliminates half of the possibilities.
+* **Branch A (Has a Ring):** If the answer is yes, the logic moves into a closed path. It then asks about the forest environment. If yes, it decides it is **Amanite tue-mouche**. If no, it asks about the cup shape to decide between **Agaric Jaunissant** and **Coprin chevelu**.
+* **Branch B (No Ring):** If the answer is no, the logic enters a different path. It asks if it has gills. If the user says no, the computer instantly decides it is **Cepe de Bordeaux** (since it is the only one with pores). If yes, it asks about the cup shape to choose between **Pied bleu** and **Girolle**.
 
-### 2.2 Class Declaration and Execution Entry Point
-```java
-public class Mashroom {
-    public static void main(String[] args) {
-```
-*   **How it works:** Allocates a public class structure named `Mashroom` (matching your precise physical file name). The second line sets up the mandatory `main` method, telling the Java Virtual Machine (JVM) exactly where execution threads must begin running.
+### 3. Java Code Mechanics & Line-by-Line Explanation
+* `import java.util.Scanner;`
+  * **Role & Lore:** Just like in the bike program, this activates the standard **Scanner** class. Its entire purpose here is to act as a bridge that brings textual text choices directly from the user's keyboard straight into the matching code logic blocks.
+* `Scanner scanner = new Scanner(System.in);`
+  * **Role & Lore:** Sets up your reading tool (named `scanner`) to start listening closely for any text answers or keys pressed inside the terminal panel.
+* `System.out.print("Does your mushroom have a ring? (yes/no): ");`
+  * **Role & Lore:** This displays a clear textual query on screen **asking the user to type their response directly on the keyboard**.
+* `String answerRing = scanner.next().trim().toLowerCase();`
+  * **Role & Lore:** This reads the user's typed response from the keyboard and runs two text cleanup tools to keep the code safe from human errors:
+    * **`.trim()` Explanation:** This cuts away any accidental empty spaces that the user might have pressed before or after typing their word. It makes sure `" yes "` becomes a clean `"yes"`.
+    * **`.toLowerCase()` Explanation:** This converts any capital letters straight into small letters. It ensures that inputs like `"YES"`, `"Yes"`, or `"yEs"` all instantly convert to lowercase `"yes"` so the system can match it without crashing.
+* `if (answerRing.equals("yes"))`
+  * **Role & Lore:** Instead of using standard symbols like `==`, this dedicated text tool safely compares the word stored in memory against the option string `"yes"` to pick the next step on the classification tree.
 
-### 2.3 Object Instantiation & Context Display
-```java
-        Scanner scanner = new Scanner(System.in);
+### 4. User Interaction & Output Details
+* **User and Program Interaction:** The interaction runs like a conversational diagnostic quiz. The program prints the initial game instructions, and then asks specific questions where each answer directly guides what choice the program presents to the user next.
+* **Keyboard Inputs & Keywords:** The program relies on explicit string keywords: `"yes"` or `"no"`. Any random phrases outside of these expected triggers will cleanly fall through to an unrecognized error branch.
+* **Output Display Window:** The console log tracks the conversation path in real-time. When a final answer node is triggered, it completely stops asking questions and logs a bold final verdict string (e.g., `Your mushroom is: Girolle`) right at the bottom of the window.
 
-        System.out.println("Think of one of the following mushrooms:");
-        System.out.println("- Agaric Jaunissant");
-        System.out.println("- Amanite tue-mouche");
-        System.out.println("- Cepe de Bordeaux");
-        System.out.println("- Coprin chevelu");
-        System.out.println("- Girolle");
-        System.out.println("- Pied bleu");
-```
-*   **How it works:** Instantiates a new memory reference named `scanner` bound to the system keyboard input stream (`System.in`). The subsequent `System.out.println` statements push text to the user's terminal window to define the available specimen profiles.
-
-### 2.4 First Isolation Variable & Data Normalization Pipeline
-```java
-        System.out.print("Does your mushroom have a convex cup? (yes/no): ");
-        String answer1 = scanner.nextLine().trim().toLowerCase();
-```
-*   **How it works:** Prompts the user for observations. The program halts at `scanner.nextLine()` until user response strings are submitted. To protect logic structures against keyboard errors, `.trim()` strips out accidental spacing padding, and `.toLowerCase()` shifts characters to lowercase before storing the safe result in the string object variable `answer1`.
-
-### 2.5 Primary Tree Disjunction (Layer 1 Decision)
-```java
-        if (answer1.equals("yes")) {
-```
-*   **The Decision:** This conditional statement splits the entire mushroom kingdom in half. If the specimen features a convex cup, the execution scope steps inside this main `if` block, isolating the possibilities immediately down to just three potential profiles: **Agaric Jaunissant**, **Amanite tue-mouche**, or **Pied bleu**.
-
----
-
-### 2.6 Path Alpha Execution (Processing Bounded Convex Cup Specimens)
-
-```java
-            System.out.print("Does your mushroom have a ring? (yes/no): ");
-            String answer2 = scanner.nextLine().trim().toLowerCase();
-
-            if (answer2.equals("yes")) {
-```
-*   **The Decision:** Inside the convex cup cluster, the system prompts for structural ring markers. If `answer2` equals `"yes"`, it drops into a nested scope, leaving only two candidates left: *Agaric Jaunissant* or *Amanite tue-mouche*.
-
-```java
-                System.out.print("Does your mushroom grow in a forest? (yes/no): ");
-                String answer3 = scanner.nextLine().trim().toLowerCase();
-
-                if (answer3.equals("yes")) {
-                    System.out.println("\nYour mushroom is: Amanite tue-mouche");
-                } else {
-                    System.out.println("\nYour mushroom is: Agaric Jaunissant");
-                }
-```
-*   **The Decision:** Layer 3 environment check. If the ring-bearing convex specimen is native to a forest domain, it matches the definitive invariants for **Amanite tue-mouche**. If the condition fails (`else`), it outputs **Agaric Jaunissant**.
-
-```java
-            } else {
-                 System.out.println("\nYour mushroom is: Pied bleu");
-            }
-```
-*   **The Decision:** This `else` matches the Layer 2 ring question. If a specimen has a convex cup but completely lacks a structural ring, it bypasses any further questions and declares the specimen as **Pied bleu**.
-
----
-
-### 2.7 Path Beta Execution (Processing Bounded Non-Convex Cup Specimens)
-
-```java
-        } else {
-```
-*   **The Decision:** This structural `else` catches all scenarios where `answer1` was `"no"`. Execution inside this fallback block means the mushroom *does not* have a convex cup, isolating the possibilities to **Cepe de Bordeaux**, **Coprin chevelu**, or **Girolle**.
-
-```java
-            System.out.print("Does your mushroom have a ring? (yes/no): ");
-            String answer2 = scanner.nextLine().trim().toLowerCase();
-
-            if (answer2.equals("yes")) {
-                System.out.println("\nYour mushroom is: Coprin chevelu");
-            }
-```
-*   **The Decision:** Evaluates ring structures for non-convex specimens. Because **Coprin chevelu** is uniquely defined as the only non-convex mushroom in your pool containing a ring signature, matching `"yes"` resolves the diagnosis immediately and drops out of the tree.
-
-```java
-            else {
-                System.out.print("Does your mushroom have gills? (yes/no): ");
-                String answer3 = scanner.nextLine().trim().toLowerCase();
-
-                if (answer3.equals("yes")) {
-                    System.out.println("\nYour mushroom is: Girolle");
-                } else {
-                    System.out.println("\nYour mushroom is: Cepe de Bordeaux");
-                }
-            }
-        }
-```
-*   **The Decision:** Triggers if a non-convex mushroom lacks a ring structure. The program moves down to evaluate the presence of a gill structure. If the specimen handles respiratory gas exchanges via gills (`"yes"`), the program returns **Girolle**. If it lacks gills entirely (indicating it uses pores under its cap), the program falls through to the absolute terminal state: **Cepe de Bordeaux**.
-
- .
-
----
-
-## 3. Required Tools & Environment Setup
-To build, compile, and execute this project locally, your environment requires the following software:
-1. **Java Development Kit (JDK):** Version 11 or newer configured on your operating system paths.
-2. **Terminal Console:** To execute build instructions and process runtime interactive feedback loops (`System.in`/`System.out`).
-
----
-
-## 4. Compilation and Execution
-To execute this logic model directly from your system console, run the following sequential directives within the project root folder:
-
-```sh
-javac -d out src/Mashroom.java
-java -cp out Mashroom
-```
-
----
-
-## 5. Execution Verification Example
+### 5. Console Test Example
 ```text
 Think of one of the following mushrooms:
-- Agaric Jaunissant
-- Amanite tue-mouche
-- Cepe de Bordeaux
-- Coprin chevelu
-- Girolle
-- Pied bleu
+- Agaric Jaunissant...
+Does your mushroom have a ring? (yes/no): no
+Does your mushroom have gills? (yes/no): yes
+Does your mushroom have a convex cup? (yes/no): no
+Your mushroom is: Girolle
+```
 
-Does your mushroom have a convex cup? (yes/no): yes
-Does your mushroom have a ring? (yes/no): yes
-Does your mushroom grow in a forest? (yes/no): no
+---
 
-Your mushroom is: Agaric Jaunissant
+## How to Compile and Run
 
+Make sure you have the Java Development Kit (JDK) installed, open your terminal, and run these commands:
 
+1. **Compile both files:**
+   ```bash
+   javac BicycleRental.java Mushroom.java
+   ```
+2. **Run the Bike Rental program:**
+   ```bash
+   java BicycleRental
+   ```
+3. **Run the Mushroom program:**
+   ```bash
+   java Mushroom
+   ```
 
-
-
-
-
-
-
-
+---
 
