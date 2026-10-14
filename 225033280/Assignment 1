@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class BicycleRental {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("=== Bicycle Rental Cost Calculator ===");
+        System.out.print("Enter starting time (0 to 23): ");
+        int startTime = scanner.nextInt();
+        
+        System.out.print("Enter ending time (1 to 24): ");
+        int endTime = scanner.nextInt();
+        
+        
+        if (startTime < 0 || startTime > 23 || endTime < 1 || endTime > 24 || startTime >= endTime) {
+            System.out.println("Invalid input! Ensure start time is 0-23, end time is 1-24, and start time < end time.");
+            scanner.close();
+            return;
+        }
+        
+        int totalCost = 0;
+        
+        
+        for (int h = startTime; h < endTime; h++) {
+            if ((h >= 0 && h < 7) || (h >= 21 && h < 24)) {
+                totalCost += 500;  
+            } else if ((h >= 7 && h < 14) || (h >= 19 && h < 21)) {
+                totalCost += 1000; 
+            } else if (h >= 14 && h < 19) {
+                totalCost += 1500; 
+            }
+        }
+        
+        System.out.println("\n--- Rental Summary ---");
+        System.out.println("Duration: " + (endTime - startTime) + " hour(s)");
+        System.out.println("Total Cost: " + totalCost + " RWF");
+        
+        scanner.close();
+    }
+}
