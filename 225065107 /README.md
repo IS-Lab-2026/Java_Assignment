@@ -39,12 +39,6 @@ the 27th line we have the variables h and total, where h is the difference betwe
 48 line if the input are in not in the given range the output will be "not working"
 
 
-THE MUSHROOM IDENTIFIER
 
-On the 19th to the 25th line we get the input from the user  
-
-On 22nd line we get the question and the user will answer if the answer is 'n' we will get the output  will be cepe de bordeau 
-
-if the above condition is not the program will take else
 
 and the condition will be checked based on the answer from the user and the program will give the output based if the condition is true the output will be its respective matching mushroom
