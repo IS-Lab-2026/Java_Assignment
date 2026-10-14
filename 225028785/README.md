@@ -18,9 +18,9 @@ A program that determines the total rental cost for a bicycle based on a startin
 
 ###  Rental Rate Structure
 The program loops hourly through the rental duration and applies rates based on these brackets:
-* **00:00 – 07:00** & **21:00 – 24:00** ➡️ `500 RWF` per hour
-* **07:00 – 14:00** & **19:00 – 21:00** ➡️ `1,000 RWF` per hour
-* **14:00 – 19:00** ➡️ `1,500 RWF` per hour
+* **00:00 – 07:00** & **21:00 – 24:00**  `500 RWF` per hour
+* **07:00 – 14:00** & **19:00 – 21:00**  `1,000 RWF` per hour
+* **14:00 – 19:00**  `1,500 RWF` per hour
 
 ###  Sample Output
 ```text
