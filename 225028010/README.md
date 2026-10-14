@@ -1,84 +1,96 @@
-       # Bicycle Rental Program
 
-    # Overview
+# Java Mini Projects
 
-This is a java application that calculate the cost of bicycle rental according to the number
-of hours rented and the hourly rates.
+This repository contains two Java console applications: a Bicycle Rental Program and a Mushroom Identification Program.
 
-    # Objective
+## 1. Bicycle Rental Program
 
-  .To calculate the total cost of bicycle rental
-  .To accept starting time and ending time from user
-  .To validate the entered time
-  .To apply the correct total rental price
-  .To display the total rental cost in frw
+### Overview
+The Bicycle Rental Program is a Java application that calculates the cost of bicycle rental based on the number of hours rented and the hourly rates.
 
-     # How it works
+### Objectives
+- Calculate the total cost of bicycle rental.
+- Accept the starting time and ending time from the user.
+- Validate the entered time.
+- Apply the correct hourly rental rates.
+- Display the total rental cost in RWF.
 
-   .The user enters the starting time  and ending time
-   .The program check whether the time is valid
-   .The program calculates the price for each hour using the rental rates
-   .The total rental cost is displayed
+### How It Works
+1. The user enters the starting time and ending time.
+2. The program checks whether the entered time is valid.
+3. The program calculates the price for each rented hour using the applicable rental rates.
+4. The total rental cost is displayed in RWF.
 
-    # Examples:
-    # Input:
-    Starting time(0-23): 8
-    Ending time(1-24): 10
+### Example
 
-    #Output:
-    Total rental cost : 2000 RWF
+**Input**
+```text
+Starting time (0-23): 8
+Ending time (1-24): 10
+```
 
-    Conclusion
+**Output**
+```text
+Total rental cost: 2000 RWF
+```
 
-    The Bicycle Rental program makes it easy to calculate rental cost accurately and check the validity  of rental time.
+### Conclusion
+The Bicycle Rental Program makes it easy to calculate rental costs accurately while checking the validity of the rental time.
 
+---
 
+## 2. Mushroom Identification Program
 
-               # Mushroom Identification Program
+### Overview
+The Mushroom Identification Program is a simple Java console application that helps users identify one of six mushrooms by answering questions about their physical characteristics and where they grow.
 
-          # Overview
-        The is a simple java console application that helps a user identity one of six mushroom by
-        answering a series of questions about its physical characteristics  and where it grows.
- 
-        This project demonstrates the use of java programming concept such as :
-        -Variables and datatypes
-        -User input using Scanner class
-        -Conditional Statement
-        -String  comparision  using equal () mehods
-        -Converting user input to lowercase using to lowercase
+This project demonstrates the following Java programming concepts:
+- Variables and data types.
+- User input using the `Scanner` class.
+- Conditional statements.
+- String comparison using the `equals()` method.
+- Converting user input to lowercase using `toLowerCase()`.
 
-            #Project objective
+### Objectives
+- Identify six different mushrooms using simple questions.
+- Collect answers from users.
+- Apply conditional statements in Java.
+- Use a decision tree to identify a mushroom.
+- Display the identification result.
 
-        .To identify six different mushrooms using simple question
-        .To collect answers from users
-        .To  apply condition statement in java
-        .To use a decision tree to  identify a mushroom
-        .To display  the identification result
+### How It Works
+1. The program asks the user questions about the mushroom.
+2. It asks whether the mushroom has a ring.
+3. Depending on the answer, it asks about gills or whether the mushroom grows in a forest.
+4. It may ask another question about a convex cup.
+5. The program follows the corresponding conditions in the decision tree.
+6. Finally, it displays the identified mushroom.
 
-             # How it works
+### Example
 
-        . The program display the list of six mushroom
-        . It asks whether the mushroom has a ring
-        . Depending on the answer ,It asks about gills or whether the mushroom grows in a forest
-        . It may ask another question about a convex cup
-        . The program follows the corresponding condition
-        . Finally,Display the identified mushroom
+**Input**
+```text
+Does your mushroom have a ring? (yes/no): yes
+Does your mushroom have gills? (yes/no): yes
+Does your mushroom grow in a forest? (yes/no): yes
+```
 
-          #Example:
-          
-          # Input:
-          Does your mushroom have a ring?(yes/no):yes
-          Does your mushroom have a gills?(yes/no):yes
-          Does your mushroom grow in a forest?(yes/no):yes
+**Output**
+```text
+Your mushroom is Amanite tue-mouche.
+```
 
-          # Output:
-          Your mushroom is Amanite tue-mouche.
+### Conclusion
+The Mushroom Identification Program demonstrates how Java can be used to make decisions based on user input and identify mushrooms through a series of questions.
 
-          #Conclusion
-          The mushroom Identifier demonstrates how java can be used to make decision based on user inputs.
+---
 
-          
-          
-          
-        
-    
+## Technologies Used
+- Java
+- Java `Scanner` class
+- Conditional statements
+- String methods
+- Console input and output
+
+## Author
+Java Mini Projects
