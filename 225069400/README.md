@@ -41,7 +41,7 @@ Each Java program has its own public class and should be saved in a separate fil
 
 5. Application One: Bicycle Rental
    
-5.1 Description
+5.1 Description,
 The BicycleRental program calculates the total rental cost according to the number of hours a bicycle is rented and the hourly rates defined in the program.
 
 The user enters a starting hour and an ending hour.
