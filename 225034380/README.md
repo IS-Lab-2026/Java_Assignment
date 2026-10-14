@@ -36,53 +36,6 @@ It calculates how much a customer must pay to rent a bicycle. The price depends 
 The program checks the conditions from top to bottom and stops at the first one that is true. That is why else if (startTime < 14) only needs to say "less than 14": a start time below 7 was already handled by the first "if".
 
 
-java codes
-import java.util.Scanner;
-
-public class BicycleRental {
-    public static void main(String[] args) {
-
-        Scanner input = new Scanner(System.in);
-
-        int startTime;
-        int endTime;
-        int hours;
-        int rate;
-        int total;
-
-        System.out.print("Enter starting time: ");
-        startTime = input.nextInt();
-
-        System.out.print("Enter ending time: ");
-        endTime = input.nextInt();
-
-        hours = endTime - startTime;
-
-        if (startTime < 7) {
-            rate = 500;
-        }
-        else if (startTime < 14) {
-            rate = 1000;
-        }
-        else if (startTime < 19) {
-            rate = 1500;
-        }
-        else if (startTime < 21) {
-            rate = 1000;
-        }
-        else {
-            rate = 500;
-        }
-
-        total = hours * rate;
-
-        System.out.println("Rental hours = " + hours);
-        System.out.println("Rate per hour = " + rate + " RWF");
-        System.out.println("Total cost = " + total + " RWF");
-    }
-}
-
-
 Example :
 Enter starting time: 8
 Enter ending time: 11
@@ -132,72 +85,6 @@ Does it grow in a forest?
                            +-- NO  --> Cepe de Bordeaux
 
 Every mushroom is reached by a different combination of answers, so the program always ends with exactly one result. It asks at most three questions.
-
-java codes
-
-import java.util.Scanner;
-
-public class Mushroom {
-    public static void main(String[] args) {
-
-        Scanner input = new Scanner(System.in);
-
-        String forest;
-        String convex;
-        String ring;
-        String gills;
-
-        System.out.println("Think of one of the six mushrooms.");
-
-        System.out.print("Does your mushroom grow in a forest? ");
-        forest = input.nextLine();
-
-        if (forest.equalsIgnoreCase("no")) {
-
-            System.out.print("Does your mushroom have a convex cup? ");
-            convex = input.nextLine();
-
-            if (convex.equalsIgnoreCase("yes")) {
-                System.out.println("Your mushroom is Agaric jaunissant.");
-            }
-            else {
-                System.out.println("Your mushroom is Coprin chevelu.");
-            }
-        }
-
-        else {
-
-            System.out.print("Does your mushroom have a convex cup? ");
-            convex = input.nextLine();
-
-            if (convex.equalsIgnoreCase("yes")) {
-
-                System.out.print("Does your mushroom have a ring? ");
-                ring = input.nextLine();
-
-                if (ring.equalsIgnoreCase("yes")) {
-                    System.out.println("Your mushroom is Amanite tue-mouches.");
-                }
-                else {
-                    System.out.println("Your mushroom is Pied bleu.");
-                }
-            }
-
-            else {
-
-                System.out.print("Does your mushroom have gills? ");
-                gills = input.nextLine();
-
-                if (gills.equalsIgnoreCase("yes")) {
-                    System.out.println("Your mushroom is Girolle.");
-                }
-                else {
-                    System.out.println("Your mushroom is Cepe de Bordeaux.");
-                }
-            }
-        }
-    }
-}
 
 
  Example : a mushroom outside the forest
