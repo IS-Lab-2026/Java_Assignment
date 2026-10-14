@@ -7,7 +7,7 @@ This repository contains two pure Java console-based applications that implement
 ##  Table of Contents
 1. [Program 1: Bicycle Rental Cost Calculator](#1-program-1-bicycle-rental-cost-calculator)
 2. [Program 2: Mushroom Identification Game](#2-program-2-mushroom-identification-game)
-3. [💻 How to Run the Programs](#-how-to-run-the-programs)
+3. [ How to Run the Programs](#-how-to-run-the-programs)
 
 ---
 
