@@ -4,6 +4,7 @@ This repository contains two pure Java console-based applications that implement
 
 
 
+
 ##  Table of Contents
 1. [Program 1: Bicycle Rental Cost Calculator](#1-program-1-bicycle-rental-cost-calculator)
 2. [Program 2: Mushroom Identification Game](#2-program-2-mushroom-identification-game)
@@ -11,10 +12,12 @@ This repository contains two pure Java console-based applications that implement
 
 
 
+
 ## 1. Program 1: Bicycle Rental Cost Calculator
 
 ###  Problem Description
 A program that determines the total rental cost for a bicycle based on a starting hour and ending hour provided by the user.
+
 
 ###  Rental Rate Structure
 The program loops hourly through the rental duration and applies rates based on these brackets:
@@ -33,6 +36,7 @@ here
 here
 TOTAL RENT: 3500
 ```
+
 
 
 
@@ -60,6 +64,7 @@ Does your mushroom grow in meadows?
 false
 Mushroom: Amanite tue-mouche
 ```
+
 
 
 
