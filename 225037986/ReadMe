@@ -1,1 +1,48 @@
+Bicycle Rental System
+
+This Java program calculates total bicycle rental cost in RWF based on time.
+
+Pricing:
+- 0 to 6 = 500 RWF
+- 7 to 13 = 1000 RWF
+- 14 to 18 = 1500 RWF
+- 19 to 20 = 1000 RWF
+- 21 to 23 = 500 RWF
+
+How to run:
+File is BicycleRental.java in package com.mycompany.mavenproject2.
+In NetBeans click Run File (Shift+F6).
+
+Example:
+Enter start time (0-23): 6
+Enter end time (1-24): 10
+Total rental cost = 3500 RWF
+
+
+Mushroom Identification - README
+What this code does
+This Java program identifies a mushroom name based on 3 questions: cap shape, presence of gills/ring, and where it grows.
+
+ How it works
+- Uses Scanner to ask user yes/no questions
+- Uses nested if-else as a decision tree
+- Prints the identified mushroom at the end
+
+How to run
+1. Package: `com.mycompany.mavenproject2`
+2. Main class: `MushroomIdentification.java`
+3. In NetBeans: Right click project > Run
+4. In terminal: `java MushroomIdentification`
+5. Type `yes` or `no` when asked
+
+Requirements
+- Java JDK 8+
+- Maven
+
+Input / Output Example
+Question: Does it have a convex cap? -> yes
+Question: Does it grow in a forest? -> yes
+Question: Does it have a ring? -> yes
+Result: Mushroom identified: Amanite tue-mouche
+
 
