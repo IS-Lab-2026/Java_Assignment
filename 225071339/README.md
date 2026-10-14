@@ -1,5 +1,6 @@
 1. MushroomGuess:
 This program identifies a mushroom by asking the user questions that require yes or no answers.
+
 Explanation
 - package javaapplication1; : Places the class in the javaapplication1 package.
 - import java.util.Scanner; : Imports Scanner so the program can read keyboard input.
