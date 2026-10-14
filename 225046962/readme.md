@@ -243,13 +243,7 @@ public class Mashroom {
 ```
 *   **The Decision:** Triggers if a non-convex mushroom lacks a ring structure. The program moves down to evaluate the presence of a gill structure. If the specimen handles respiratory gas exchanges via gills (`"yes"`), the program returns **Girolle**. If it lacks gills entirely (indicating it uses pores under its cap), the program falls through to the absolute terminal state: **Cepe de Bordeaux**.
 
-### 2.8 Resource Deallocation
-```java
-        scanner.close();
-    }
-}
-```
-*   **How it works:** Explicitly calls `.close()` on the input object stream to cleanly free system input resources within the OS environment before completing the execution sequence.
+ .
 
 ---
 
