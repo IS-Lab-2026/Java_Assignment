@@ -1,36 +1,3 @@
-# Time Manager – Rental Cost Calculator
-
-## Project description
-
-This Java program asks the user for a starting hour and an ending hour. It checks the entered times and calculates a rental cost using the hourly rates written in the source code.
-
-## Requirements
-
-- Java Development Kit (JDK)
-- VS Code, NetBeans, or another Java editor
-
-## How to run it in VS Code
-
-1. Save the source code as `timemanager.java`.
-2. Open the folder containing `timemanager.java` in VS Code.
-3. Open **Terminal → New Terminal**.
-4. Compile the program:
-
-   ```bash
-   javac timemanager.java
-   ```
-
-5. Run the program:
-
-   ```bash
-   java timemanager
-   ```
-
-6. Enter a starting time and an ending time when prompted.
-
-## Complete line-by-line explanation
-
-The explanations below follow the code in `timemanager.java`.
 
 ### 1. Import Scanner
 
