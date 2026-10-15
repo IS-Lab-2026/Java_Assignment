@@ -1,0 +1,62 @@
+# Bicycle Rental Cost Calculator
+
+## Description
+This Java program calculates the total cost of renting a bicycle based on the starting time and ending time entered by the user. It checks the price for each hour of the rental period and adds the hourly rates to calculate the final cost in Rwandan francs (RWF).
+
+## Rental Rates
+| Rental hour | Price per hour |
+|---|---:|
+| Before 07:00 | 500 RWF |
+| 07:00 to before 14:00 | 1,000 RWF |
+| 14:00 to before 19:00 | 1,500 RWF |
+| 19:00 to before 21:00 | 1,000 RWF |
+| 21:00 to 24:00 | 500 RWF |
+
+## Requirements
+- Java Development Kit (JDK) installed.
+- A Java IDE or terminal to compile and run the program.
+
+## How to Run
+1. Save the program in a file named `BicycleRental.java`.
+2. Open a terminal in the folder containing the file.
+3. Compile the program:
+   ```bash
+   javac BicycleRental.java
+   ```
+4. Run the program:
+   ```bash
+   java BicycleRental
+   ```
+5. Enter the starting time and ending time when prompted.
+
+## Example
+Input:
+- Starting time: `13`
+- Ending time: `16`
+
+Calculation:
+- 13:00–14:00 = 1,000 RWF
+- 14:00–15:00 = 1,500 RWF
+- 15:00–16:00 = 1,500 RWF
+
+Output:
+```text
+Total rental cost = 4000 RWF
+```
+
+## How It Works
+1. The program asks the user for the starting and ending times.
+2. It initializes the total cost to zero.
+3. It loops through each hour from the starting time up to, but not including, the ending time.
+4. It selects the hourly rate based on the current hour.
+5. It adds that rate to the total cost and advances to the next hour.
+6. When the rental period ends, it displays the total cost.
+
+## Input Rules
+- Use whole-hour values.
+- The starting time should be from `0` to `23`.
+- The ending time should be later than the starting time and from `1` to `24`.
+- This version assumes the rental ends on the same day; it does not handle rentals that cross midnight.
+
+## Notes
+The program uses `||` (logical OR) to apply the 500 RWF rate before 07:00 and from 21:00 onward. These are two separate time ranges, so OR is appropriate.

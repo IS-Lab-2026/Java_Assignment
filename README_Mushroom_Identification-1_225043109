@@ -1,0 +1,66 @@
+# Mushroom Identification System
+
+## 1. Introduction
+The Mushroom Identification System is a Java program designed to identify a mushroom based on its characteristics. The program asks the user a series of yes/no questions and uses decision-making statements to determine the possible type of mushroom.
+
+## 2. Objectives
+- To identify mushrooms based on their characteristics.
+- To practice using variables and input statements in Java.
+- To understand decision-making statements such as `if` and `else`.
+- To use conditional statements to solve a classification problem.
+
+## 3. Technologies Used
+- **Programming language:** Java
+- **Input method:** Keyboard input using the `Scanner` class.
+- **Development environment:** Apache NetBeans or another Java IDE.
+
+## 4. Mushroom Types
+The program considers the following six mushroom types:
+1. Agaric jaunissant
+2. Amanite tue-mouche
+3. Cepe de bordeaux
+4. Coprin chevelu
+5. Girolle
+6. Pied bleu
+
+## 5. How the Program Works
+1. The program starts.
+2. It asks whether the mushroom grows in a forest.
+3. Depending on the answer, it asks additional questions about the mushroom's characteristics.
+4. The user answers each question with `yes` or `no`.
+5. The program uses conditional statements to determine the possible mushroom type.
+6. The result is displayed on the screen.
+7. The program terminates.
+
+## 6. Requirements
+To run the program, you need:
+- A computer with Java installed.
+- A Java development environment, such as Apache NetBeans.
+- The `Main.java` source file.
+
+## 7. How to Run the Program
+1. Open Apache NetBeans.
+2. Create a new Java project.
+3. Create a Java class named `Main`.
+4. Copy the Java program into the class.
+5. Run the program.
+6. Answer the questions displayed on the screen.
+
+## 8. Sample Output
+```text
+MUSHROOM IDENTIFICATION
+Does your mushroom grow in a forest? (yes/no): yes
+Does your mushroom have gills? (yes/no): no
+Your mushroom is Cepe de bordeaux.
+```
+
+## 9. Limitations
+The program cannot distinguish between some mushroom types because the assignment does not provide enough characteristics to identify each one uniquely.
+
+- Coprin chevelu and Agaric jaunissant share the listed characteristics of growing in meadows, having gills, and having a ring.
+- Girolle and Pied bleu cannot be distinguished reliably using the characteristics provided.
+
+Additional characteristics are needed to identify all six mushroom types accurately.
+
+## 10. Conclusion
+The Mushroom Identification System demonstrates the use of Java variables, keyboard input, string handling, and conditional statements. It provides a simple example of how programming can be used to solve a classification problem.
