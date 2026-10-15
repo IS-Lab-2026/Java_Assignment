@@ -1,3 +1,4 @@
+reg no : 225031933
 1. Input: Reads the rental start hour (0–23) and end hour (1–24) using a Scanner.
 
 2. Validation: Checks if the inputs are within range and that start < end. If invalid, prints an error and stops execution.
