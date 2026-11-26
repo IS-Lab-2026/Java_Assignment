@@ -1,0 +1,129 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class MushroomIdentifierFrame extends JFrame implements ActionListener {
+    private JLabel listLabel;
+    private JLabel questionLabel;
+    private JButton yesButton;
+    private JButton noButton;
+    private JButton restartButton;
+
+    // Tracks the current step in the decision tree
+    private int step = 1;
+
+    public MushroomIdentifierFrame() {
+        setTitle("Mushroom Identifier");
+        setSize(480, 320);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null); // Center the window on screen
+        setLayout(new BorderLayout(10, 10));
+
+        // Top Label: Displays the 6 mushroom choices
+        listLabel = new JLabel(
+            "<html><div style='text-align: center;'>"
+            + "<b>Think of one of these mushrooms:</b><br>"
+            + "Agaric jaunissant | Amanite tue-mouche | Cepe de bordeaux<br>"
+            + "Coprin chevelu | Girolle | Pied bleu"
+            + "</div></html>",
+            SwingConstants.CENTER
+        );
+        listLabel.setBorder(BorderFactory.createEmptyBorder(15, 10, 10, 10));
+        add(listLabel, BorderLayout.NORTH);
+
+        // Center Label: Displays the current question or final result
+        questionLabel = new JLabel("1. Does your mushroom grow in a forest?", SwingConstants.CENTER);
+        questionLabel.setFont(new Font("Arial", Font.BOLD, 16));
+        add(questionLabel, BorderLayout.CENTER);
+
+        // Bottom Panel: Holds Yes, No, and Restart buttons
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 15));
+        yesButton = new JButton("Yes");
+        noButton = new JButton("No");
+        restartButton = new JButton("Restart");
+
+        yesButton.setPreferredSize(new Dimension(90, 35));
+        noButton.setPreferredSize(new Dimension(90, 35));
+        restartButton.setPreferredSize(new Dimension(100, 35));
+        restartButton.setVisible(false); // Hidden until the result is shown
+
+        yesButton.addActionListener(this);
+        noButton.addActionListener(this);
+        restartButton.addActionListener(this);
+
+        buttonPanel.add(yesButton);
+        buttonPanel.add(noButton);
+        buttonPanel.add(restartButton);
+        add(buttonPanel, BorderLayout.SOUTH);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == restartButton) {
+            // Reset back to Question 1
+            step = 1;
+            questionLabel.setText("1. Does your mushroom grow in a forest?");
+            yesButton.setVisible(true);
+            noButton.setVisible(true);
+            restartButton.setVisible(false);
+            return;
+        }
+
+        boolean isYes = (e.getSource() == yesButton);
+
+        if (step == 1) {
+            // Q1: Does your mushroom grow in a forest?
+            if (!isYes) {
+                step = 2; // Meadow branch
+                questionLabel.setText("2. Does your mushroom have a convex cup?");
+            } else {
+                step = 3; // Forest branch
+                questionLabel.setText("2. Does your mushroom have a ring?");
+            }
+        } else if (step == 2) {
+            // Q2 (Meadow): Does your mushroom have a convex cup?
+            if (isYes) {
+                showResult("Agaric jaunissant");
+            } else {
+                showResult("Coprin chevelu");
+            }
+        } else if (step == 3) {
+            // Q2 (Forest): Does your mushroom have a ring?
+            if (isYes) {
+                showResult("Amanite tue-mouche");
+            } else {
+                step = 4; // Forest + No ring branch
+                questionLabel.setText("3. Does your mushroom have gills?");
+            }
+        } else if (step == 4) {
+            // Q3 (Forest + No ring): Does your mushroom have gills?
+            if (!isYes) {
+                showResult("Cepe de bordeaux");
+            } else {
+                step = 5; // Forest + No ring + Gills branch
+                questionLabel.setText("3. Does your mushroom have a convex cup?");
+            }
+        } else if (step == 5) {
+            // Q4 (3rd asked in this path): Does your mushroom have a convex cup?
+            if (isYes) {
+                showResult("Pied bleu");
+            } else {
+                showResult("Girolle");
+            }
+        }
+    }
+
+    private void showResult(String mushroom) {
+        questionLabel.setText("Your mushroom is: " + mushroom);
+        yesButton.setVisible(false);
+        noButton.setVisible(false);
+        restartButton.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            new MushroomIdentifierFrame().setVisible(true);
+        });
+    }
+}

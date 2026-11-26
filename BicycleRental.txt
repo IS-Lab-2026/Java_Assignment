@@ -1,0 +1,125 @@
+package Welcome;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+public class BicycleRental extends JFrame {
+
+    private JComboBox<Integer> startTime;
+    private JComboBox<Integer> endTime;
+    private JLabel resultLabel;
+    private Welcome welcome; // reference to the Welcome window
+
+    public BicycleRental(Welcome welcome) {
+        this.welcome = welcome;
+
+        setTitle("Bicycle Rental System");
+        setSize(450, 400);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        // When this window is closed with the X button, show Welcome again
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                BicycleRental.this.welcome.setVisible(true);
+            }
+        });
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(5, 2, 10, 15));
+        panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
+
+        JLabel title = new JLabel("BICYCLE RENTAL SYSTEM");
+        title.setFont(new Font("Arial", Font.BOLD, 20));
+        title.setHorizontalAlignment(JLabel.CENTER);
+
+        panel.add(new JLabel("Starting Hour:"));
+
+        startTime = new JComboBox<>();
+        for (int i = 0; i <= 23; i++) {
+            startTime.addItem(i);
+        }
+        panel.add(startTime);
+
+        panel.add(new JLabel("Ending Hour:"));
+
+        endTime = new JComboBox<>();
+        for (int i = 1; i <= 24; i++) {
+            endTime.addItem(i);
+        }
+        panel.add(endTime);
+
+        JButton calculateButton = new JButton("Calculate Cost");
+        panel.add(calculateButton);
+
+        JButton clearButton = new JButton("Clear");
+        panel.add(clearButton);
+
+        panel.add(new JLabel("Total Rental Cost:"));
+
+        resultLabel = new JLabel("0 RWF");
+        resultLabel.setFont(new Font("Arial", Font.BOLD, 18));
+        resultLabel.setForeground(new Color(0, 128, 0));
+        panel.add(resultLabel);
+
+        JButton cancelButton = new JButton("Cancel");
+        panel.add(cancelButton);
+        panel.add(new JLabel());
+
+        calculateButton.addActionListener(e -> calculateCost());
+
+        clearButton.addActionListener(e -> {
+            startTime.setSelectedIndex(0);
+            endTime.setSelectedIndex(0);
+            resultLabel.setText("0 RWF");
+        });
+
+        // Cancel: close this window and go back to Welcome
+        cancelButton.addActionListener(e -> {
+            dispose();                 // triggers windowClosed, which shows Welcome
+            welcome.setVisible(true);  // explicit call as well (safe to repeat)
+        });
+
+        setLayout(new BorderLayout());
+        add(title, BorderLayout.NORTH);
+        add(panel, BorderLayout.CENTER);
+
+        setVisible(true);
+    }
+
+    private void calculateCost() {
+        int start = (int) startTime.getSelectedItem();
+        int end = (int) endTime.getSelectedItem();
+
+        if (start >= end) {
+            JOptionPane.showMessageDialog(
+                this,
+                "Starting hour must be less than ending hour!",
+                "Invalid Rental Time",
+                JOptionPane.ERROR_MESSAGE
+            );
+            return;
+        }
+
+        int totalCost = 0;
+
+        for (int hour = start; hour < end; hour++) {
+            int rate;
+
+            if (hour < 7 || hour >= 21) {
+                rate = 500;
+            } else if (hour < 14 || hour >= 19) {
+                rate = 1000;
+            } else {
+                rate = 1500;
+            }
+
+            totalCost += rate;
+        }
+
+        resultLabel.setText(totalCost + " RWF");
+    }
+}
